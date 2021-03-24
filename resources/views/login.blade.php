@@ -60,8 +60,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>
                                     <div class="socal-login-buttons mt-4">
-                                        <a href="http://uilove.in/realestate/listo/preview/signin.html#"
-                                           class="btn btn-social btn-block btn-google">
+                                        <a href="{{route('login.google')}}" class="btn btn-social btn-block btn-google">
                                             <i class="icon fa fa-google"></i> Đăng nhập với tài khoản Google</a>
                                     </div>
                                 </form>
