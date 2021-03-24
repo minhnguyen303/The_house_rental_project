@@ -26,6 +26,7 @@ Route::prefix('login')->group(function () {
     // Login with google
     Route::get('/google', [AuthController::class, 'loginWithGoogle'])->name('login.google');
     Route::get('/google/callback', [AuthController::class, 'loginWithGoogleCallBack'])->name('login.google.callback');
+
 });
-Route::get('/register',[RegisterController::class,'showPageRegister'])->name('page.register');
-Route::post('/register',[RegisterController::class,'register'])->name('register');
+Route::get('/register',[AuthController::class,'showPageRegister'])->name('page.register');
+Route::post('/register',[AuthController::class,'register'])->name('register');

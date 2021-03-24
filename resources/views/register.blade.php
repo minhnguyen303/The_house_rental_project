@@ -82,9 +82,6 @@
                         </div>
                         <div></div>
                     </div>
-                    <div class="col-md-6 col-lg-5 col-xl-4">
-                        <div class="social-login-buttons"><a href="" class="btn btn-social btn-block btn-google"><i class="icon fa fa-google"></i>Tiếp tục với Google</a></div>
-                    </div>
                 </div>
             </div>
         </div>
