@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::get('/login', [AuthController::class, 'showPageLogin'])->name('page.login');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::prefix('login')->group(function () {
+    // Normal login
+    Route::get('/', [AuthController::class, 'showPageLogin'])->name('page.login');
+    Route::post('/', [AuthController::class, 'login'])->name('login');
+
+    // Login with google
+    Route::get('/google', [AuthController::class, 'loginWithGoogle'])->name('login.google');
+    Route::get('/google/callback', [AuthController::class, 'loginWithGoogleCallBack'])->name('login.google.callback');
+});

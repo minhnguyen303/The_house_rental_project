@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginUserRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
+use function PHPUnit\Framework\isEmpty;
 
 class AuthController extends Controller
 {
@@ -23,5 +30,51 @@ class AuthController extends Controller
         return back()->withErrors([
             'username' => 'Tên người dùng hoặc mật khẩu sai !',
         ]);
+    }
+
+    public function loginWithGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function loginWithGoogleCallBack()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            return redirect()->route('login');
+        }
+
+        $existingUser = User::where('email', $user->email)->first();
+
+        if ($existingUser) {
+            auth()->login($existingUser, true);
+        } else {
+            $newUser = new User();
+            $newUser->username = $user->email;
+            $newUser->password = Hash::make('password');
+            $newUser->email = $user->email;
+            $newUser->save();
+
+            auth()->login($newUser, true);
+        }
+
+        return redirect()->route('home');
+
+/*//        $userGoogle = Socialite::driver('google')->user();
+
+//        Session::push('userGoogle', $userGoogle);
+
+        dump(Session::get('userGoogle'));
+        $userDB = DB::table('users')->where('email', '=', "admin@gmail.com")->get();
+        if (count($userDB)){
+            dump($userDB);
+        } else {
+            $user = new User();
+            $user->username = $userGoogle->email;
+            $user->password = 'password';
+            $user->email = $userGoogle->email;
+        }*/
+
     }
 }
