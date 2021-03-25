@@ -14,8 +14,11 @@
     <link href="{{asset('lib/font-awesome/css/all.css')}}" rel="stylesheet">
     <link href="{{asset('lib/animate.css')}}" rel="stylesheet">
     <link href="{{asset('lib/selectric/selectric.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/swiper/css/swiper.css')}}" rel="stylesheet">
     <link href="{{asset('lib/aos/aos.css')}}" rel="stylesheet">
     <link href="{{asset('lib/Magnific-Popup/magnific-popup.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('lib/photoswipe/photoswipe.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/photoswipe/default-skin/default-skin.css')}}">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,8 +27,11 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{asset('lib/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{asset('lib/selectric/jquery.selectric.js')}}"></script>
+    <script src="{{asset('lib/swiper/js/swiper.js')}}"></script>
     <script src="{{asset('lib/aos/aos.js')}}"></script>
     <script src="{{asset('lib/Magnific-Popup/jquery.magnific-popup.js')}}"></script>
+    <script src="{{asset('lib/photoswipe/photoswipe.js')}}"></script>
+    <script src="{{asset('lib/photoswipe/photoswipe-ui-default.js')}}"></script>
     <script src="{{asset('lib/sticky-sidebar/ResizeSensor.js')}}"></script>
     <script src="{{asset('lib/sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
     <script src="{{asset('lib/sidr/jquery.sidr.js')}}"></script>
