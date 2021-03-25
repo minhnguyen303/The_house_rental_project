@@ -250,7 +250,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="item-image">
-                                                            <a href="property_single.html">
+                                                            <a href="{{route('house.info', $house->id)}}">
                                                                 <img src="{{asset('img/demo/property/1.jpg')}}"
                                                                      class="img-fluid" alt="">
                                                                 <div class="item-badges">
@@ -285,7 +285,7 @@
                                                     <div class="col-lg-6">
                                                         <div class="item-info">
                                                             <h3 class="item-title">
-                                                                <a href="#">{{$house->name}}</a>
+                                                                <a href="{{route('house.info', $house->id)}}">{{$house->name}}</a>
                                                             </h3>
                                                             <div class="item-location">
                                                                 <i class="fas fa-map-marked-alt"></i>
