@@ -29,3 +29,8 @@ Route::prefix('login')->group(function () {
 });
 Route::get('/register',[AuthController::class,'showPageRegister'])->name('page.register');
 Route::post('/register',[AuthController::class,'register'])->name('register');
+
+Route::prefix('houses')->group(function () {
+    Route::get('/', [HouseController::class, 'index'])->name('house.list');
+    Route::get('/{id}', [HouseController::class, 'info'])->name('house.info');
+});
