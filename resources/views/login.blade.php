@@ -3,7 +3,7 @@
 @section('body')
     <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" style="margin-top: 0px;">
     <div id="main">
-        @include('layout.core.nav')
+        @include('layout.core.navbar')
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col col-md-12 col-lg-10 col-xl-8">
