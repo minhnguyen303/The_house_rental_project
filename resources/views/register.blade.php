@@ -34,7 +34,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Tên người dùng</label>
-                                        <input id="name" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="User Name" name="username">
+                                        <input id="name" type="text" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror" placeholder="User Name" name="username" required>
                                         @error('username')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -43,8 +43,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Mật khẩu</label>
-                                        <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Password">
-                                        @error('password')
+                                        <input type="password" id="password_confirmation" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Password" minlength="6" maxlength="8" required>
+                                        @error('password_confirmation')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -52,11 +52,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Xác nhận mật khẩu</label>
-                                        <input type="password" id="password" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Confirm Password">
+                                        <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Confirm Password" minlength="6" maxlength="8" required>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Số điện thoại</label>
-                                        <input type="text" class="form-control form-control-lg @error('phone') is-invalid @enderror" name="phone" placeholder="Phone">
+                                        <input type="tel" value="{{ old('phone') }}" class="form-control form-control-lg @error('phone') is-invalid @enderror" name="phone" placeholder="Phone" minlength="10" required>
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -65,17 +70,27 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Địa chỉ email</label>
-                                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email">
+                                        <input id="email" value="{{ old('email') }}" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" required>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="checkbox">
-                                        <input type="checkbox" id="terms">
-                                        <label for="terms">Bằng cách đăng ký, bạn chấp nhận Điều khoản Sử dụng và Quyền riêng tư của chúng tôi.</label>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input @error('terms') is-invalid @enderror" type="checkbox"  id="terms" name="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                Bằng cách đăng ký, bạn chấp nhận Điều khoản Sử dụng và Quyền riêng tư của chúng tôi.
+                                            </label>
+                                                @error('terms')
+                                                <div class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                                @enderror
+                                        </div>
                                     </div>
+
                                     <button type="submit" class="btn btn-primary btn-lg">Đăng Ký</button>
                                 </form>
                             </div>
