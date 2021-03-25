@@ -93,11 +93,13 @@
                                             <div id="filters">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4 class="panel-title"><a role="button" data-toggle="collapse"
+                                                        <h4 class="panel-title">
+                                                            <a role="button" data-toggle="collapse"
                                                                                    data-parent="#accordion"
                                                                                    href="#p_budget" aria-expanded="true"
                                                                                    aria-controls="p_type"> Budget <i
-                                                                    class="fa fa-caret-down float-right"></i> </a></h4>
+                                                                    class="fa fa-caret-down float-right"></i> </a>
+                                                        </h4>
                                                     </div>
                                                     <div id="p_budget" class="panel-collapse collapse" role="tabpanel">
                                                         <div class="card-body">
