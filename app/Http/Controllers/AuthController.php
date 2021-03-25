@@ -5,13 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
-use function PHPUnit\Framework\isEmpty;
 
 class AuthController extends Controller
 {
@@ -62,22 +58,8 @@ class AuthController extends Controller
 
         return redirect()->route('home');
 
-/*//        $userGoogle = Socialite::driver('google')->user();
-
-//        Session::push('userGoogle', $userGoogle);
-
-        dump(Session::get('userGoogle'));
-        $userDB = DB::table('users')->where('email', '=', "admin@gmail.com")->get();
-        if (count($userDB)){
-            dump($userDB);
-        } else {
-            $user = new User();
-            $user->username = $userGoogle->email;
-            $user->password = 'password';
-            $user->email = $userGoogle->email;
-        }*/
-
     }
+
     public function showPageRegister()
     {
         return view('register');

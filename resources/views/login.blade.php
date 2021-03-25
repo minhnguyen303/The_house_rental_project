@@ -30,7 +30,7 @@
                             <li role="presentation" class="nav-item">
                                 <a class="nav-link active" href="{{route('page.login')}}">Đăng nhập</a></li>
                             <li role="presentation" class="nav-item">
-                                <a class="nav-link" href="#">Đăng ký</a>
+                                <a class="nav-link" href="{{route('page.register')}}">Đăng ký</a>
                             </li>
                         </ul>
                         <div class="tab-content">
