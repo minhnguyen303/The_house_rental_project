@@ -105,10 +105,10 @@
                                                         7</a></li>
                                                 <li class="title">Login Pages</li>
                                                 <li>
-                                                    <a href="http://uilove.in/realestate/listo/preview/signin.html">Signin</a>
+                                                    <a href="{{ route('login') }}">Signin</a>
                                                 </li>
                                                 <li>
-                                                    <a href="http://uilove.in/realestate/listo/preview/register.html">Register</a>
+                                                    <a href="{{ route('register') }}">Register</a>
                                                 </li>
                                                 <li>
                                                     <a href="http://uilove.in/realestate/listo/preview/forgot-password.html">Forgot
@@ -219,7 +219,7 @@
                 </li>
 
             </ul>
-
+            @auth
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle"
@@ -249,7 +249,7 @@
                                         href="http://uilove.in/realestate/listo/preview/my_listing_add.html"><span><i
                                 class="fa fa-plus" aria-hidden="true"></i> Add listing</span></a></li>
             </ul>
-
+            @endauth
         </div>
     </div>
 </nav>

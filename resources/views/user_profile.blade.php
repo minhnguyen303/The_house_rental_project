@@ -23,8 +23,8 @@
                                                     <span class="badge badge-primary badge-pill">7</span>
                                                 </a>
                                                 <span class="list-group-item heading">Manage Account</span>
-                                                <a href="http://uilove.in/realestate/listo/preview/my_profile.html" class="list-group-item active"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
-                                                <a href="http://uilove.in/realestate/listo/preview/my_password.html" class="list-group-item"><i class="fa fa-fw fa-lock"></i> Change Password</a>
+                                                <a href="{{ route('page.user_profile') }}" class="list-group-item active"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
+                                                <a href="{{ route('page.change_password') }}" class="list-group-item"><i class="fa fa-fw fa-lock"></i> Change Password</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_notifications.html" class="list-group-item"><i class="fa fa-fw fa-bell-o"></i> Notifications</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_membership.html" class="list-group-item"><i class="fa fa-fw fa-cubes"></i> Membership</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_payments.html" class="list-group-item"><i class="fa fa-fw fa-credit-card"></i> Payments</a>
@@ -54,7 +54,7 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="d-flex flex-column align-items-center text-center">
-                                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                                            <img src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="Admin" class="rounded-circle" width="150">
                                                             <div class="mt-3">
                                                                 <h4>{{ \Illuminate\Support\Facades\Auth::user()->fullname }}</h4>
                                                                 <p class="text-muted font-size-sm">{{ \Illuminate\Support\Facades\Auth::user()->address }}</p>
@@ -69,12 +69,7 @@
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                                             Tên người dùng:
-                                                            <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ \Illuminate\Support\Facades\Auth::user()->username }}" required>
-                                                            @error('username')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
+                                                            <input type="text" class="form-control" name="username" value="{{ \Illuminate\Support\Facades\Auth::user()->username }}" disabled required>
                                                         </li>
                                                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                                             Họ và tên:

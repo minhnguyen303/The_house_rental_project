@@ -21,7 +21,6 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => ['required','unique:users'],
             'fullname' => ['required'],
             'address' => ['required'],
             'phone' => ['required','digits:10','unique:users'],
@@ -31,8 +30,6 @@ class UpdateProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'username.required' => 'Tên người dùng không được để trống',
-            'username.unique' => 'Tên người dùng đã tồn tại',
             'fullname.required' => 'Họ và tên không được để trống',
             'address.required' => 'Địa chỉ không được để trống',
             'phone.required' => 'Số điện thoại không được để trống',
