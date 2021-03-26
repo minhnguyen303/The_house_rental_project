@@ -30,7 +30,10 @@ Route::prefix('login')->group(function () {
 Route::get('/register',[AuthController::class,'showPageRegister'])->name('page.register');
 Route::post('/register',[AuthController::class,'register'])->name('register');
 
-Route::prefix('houses')->group(function () {
+Route::middleware('auth')->prefix('houses')->group(function () {
     Route::get('/', [HouseController::class, 'index'])->name('house.list');
     Route::get('/{id}', [HouseController::class, 'info'])->name('house.info');
 });
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::get('/change_password',[AuthController::class,'pageChangePassword'])->name('page.change_password');
+Route::post('/change_password',[AuthController::class,'changePassword'])->name('change_password');

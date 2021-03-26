@@ -228,12 +228,12 @@
                        href="http://uilove.in/realestate/listo/preview/signin.html#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="user-image"
-                                      style="background-image:url(&#39; img/demo/profile3.jpg&#39;);"></span> Hi, John
+                                      style="background-image:url(&#39; img/demo/profile3.jpg&#39;);"></span> Hi, {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">
                         <a href="http://uilove.in/realestate/listo/preview/my_profile.html"
                            class="dropdown-item">My Profile</a>
-                        <a href="http://uilove.in/realestate/listo/preview/my_password.html"
+                        <a href="{{route('page.change_password')}}"
                            class="dropdown-item">Change Password</a>
                         <a href="http://uilove.in/realestate/listo/preview/my_notifications.html"
                            class="dropdown-item">Notifications</a>
@@ -243,6 +243,8 @@
                            class="dropdown-item">Payments</a>
                         <a href="http://uilove.in/realestate/listo/preview/my_account.html"
                            class="dropdown-item">Account</a>
+                        <a href="{{route('logout')}}"
+                           class="dropdown-item">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link nav-btn"
