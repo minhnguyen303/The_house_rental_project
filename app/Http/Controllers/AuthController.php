@@ -86,7 +86,7 @@ class AuthController extends Controller
     public function pageChangePassword(){
         return view('change_password');
     }
-
+  
     public function changePassword(ChangePasswordRequest $request){
         $current_password = $request->current_password;
         $new_password = $request->new_password;
