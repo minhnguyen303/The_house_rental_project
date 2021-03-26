@@ -221,17 +221,15 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
-
-
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle"
                        href="http://uilove.in/realestate/listo/preview/signin.html#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="user-image"
-                                      style="background-image:url(&#39; img/demo/profile3.jpg&#39;);"></span> Hi, {{ \Illuminate\Support\Facades\Auth::user()->username }}
+                                      style="background-image:url(&#39; {{ \Illuminate\Support\Facades\Auth::user()->avatar }}&#39;);"></span> Hi, {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">
-                        <a href="http://uilove.in/realestate/listo/preview/my_profile.html"
+                        <a href="{{route('page.user_profile')}}"
                            class="dropdown-item">My Profile</a>
                         <a href="{{route('page.change_password')}}"
                            class="dropdown-item">Change Password</a>
