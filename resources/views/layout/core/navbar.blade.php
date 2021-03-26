@@ -138,11 +138,12 @@
                     </a>
                     <div class="dropdown-menu">
                         <a href="my_profile.html" class="dropdown-item">My Profile</a>
-                        <a href="my_password.html" class="dropdown-item">Change Password</a>
+                        <a href="{{route('page.change_password')}}" class="dropdown-item">Change Password</a>
                         <a href="my_notifications.html" class="dropdown-item">Notifications</a>
                         <a href="my_membership.html" class="dropdown-item">Membership</a>
                         <a href="my_payments.html" class="dropdown-item">Payments</a>
                         <a href="my_account.html" class="dropdown-item">Account</a>
+                        <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item">

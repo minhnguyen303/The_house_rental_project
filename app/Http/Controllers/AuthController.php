@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
@@ -74,5 +76,34 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->save();
         return redirect()->route('page.login');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('page.login');
+    }
+    public function pageChangePassword(){
+        return view('change_password');
+    }
+    public function changePassword(ChangePasswordRequest $request){
+        $current_password = $request->current_password;
+        $new_password = $request->new_password;
+        $password_confirm = $request->password_confirm;
+        if ($new_password == $password_confirm){
+            if (Hash::check($current_password, Auth::user()->password)){
+                if ($current_password != $new_password){
+                    $user = Auth::user();
+                    $user->password = Hash::make($request->new_password);
+                    $user->save();
+                    Auth::logout();
+                    return redirect()->route('page.login');
+                }
+                Session::flash('message_2','Mật khẩu này đã tồn tại');
+                return redirect()->back();
+            }
+            Session::flash('message_1','Mật khẩu bạn nhập không tồn tại');
+            return redirect()->back();
+        }
+        Session::flash('message_3','Vui lòng nhập mật khẩu khớp với nội dung phía trên');
+        return redirect()->back();
     }
 }
