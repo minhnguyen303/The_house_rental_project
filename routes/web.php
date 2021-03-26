@@ -45,6 +45,3 @@ Route::prefix('houses')->group(function () {
         Route::post('/update/{id}', [HouseController::class, 'update'])->name('house.update');
     });
 });
-Route::get('logout',[AuthController::class,'logout'])->name('logout');
-Route::get('/change_password',[AuthController::class,'pageChangePassword'])->name('page.change_password');
-Route::post('/change_password',[AuthController::class,'changePassword'])->name('change_password');
