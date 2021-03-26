@@ -32,5 +32,11 @@ Route::post('/register',[AuthController::class,'register'])->name('register');
 
 Route::prefix('houses')->group(function () {
     Route::get('/', [HouseController::class, 'index'])->name('house.list');
-    Route::get('/{id}', [HouseController::class, 'info'])->name('house.info');
+    Route::get('/info/{id}', [HouseController::class, 'info'])->name('house.info');
+    Route::middleware('auth')->group(function () {
+        Route::get('/create', [HouseController::class, 'create'])->name('house.create');
+        Route::post('/create', [HouseController::class, 'store'])->name('house.store');
+        Route::get('/edit', [HouseController::class, 'edit'])->name('house.edit');
+        Route::post('/edit', [HouseController::class, 'update'])->name('house.update');
+    });
 });

@@ -20,10 +20,10 @@
                                                            style="background-color: #563d7c">
                                         @switch($house->status_id)
                                             @case(1)
-                                            <i class="fas fa-check"></i>
+                                            <i class="fa fa-check"></i>
                                             @break
                                             @case(2)
-                                            <i class="fas fa-user-check"></i>
+                                            <i class="fa fa-user-check"></i>
                                             @break
                                             @case(3)
                                             <i class="fa fa-hammer"></i>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="price">{{ number_format($house->pricePerDay, 0, ',', '.') }}đ / ngày
-                                    <small></small></div>
+                                    <small><i class="fa fa-home"></i> {{ (\Illuminate\Support\Facades\DB::table('room_types')->find($house->room_type_id))->typeName }}</small></div>
                             </div>
                         </div>
                     </div>
@@ -51,76 +51,26 @@
                     <div class="item-gallery">
                         <div class="swiper-container gallery-top" data-pswp-uid="1">
                             <div class="swiper-wrapper lazyload">
-
-                                <div class="swiper-slide">
-                                    <figure itemprop="associatedMedia" itemscope
-                                            itemtype="http://schema.org/ImageObject"><a
-                                            href="{{asset('img/demo/property/1.jpg')}}" itemprop="contentUrl"
-                                            data-size="2000x1414"> <img src="{{asset('img/demo/property/1.jpg')}}"
-                                                                        class="img-fluid swiper-lazy"
-                                                                        alt="Drawing Room"> </a></figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure itemprop="associatedMedia" itemscope
-                                            itemtype="http://schema.org/ImageObject"><a
-                                            href="{{asset('img/demo/property/2.jpg')}}" itemprop="contentUrl"
-                                            data-size="2000x1414"> <img data-src="{{asset('img/demo/property/2.jpg')}}"
-                                                                        src="{{asset('img/spacer.png')}}"
-                                                                        class="img-fluid swiper-lazy"
-                                                                        alt="Drawing Room"> </a></figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure itemprop="associatedMedia" itemscope
-                                            itemtype="http://schema.org/ImageObject"><a
-                                            href="{{asset('img/demo/property/3.jpg')}}" itemprop="contentUrl"
-                                            data-size="2000x1414"> <img data-src="{{asset('img/demo/property/3.jpg')}}"
-                                                                        src="{{asset('img/spacer.png')}}"
-                                                                        class="img-fluid swiper-lazy"
-                                                                        alt="Drawing Room"> </a></figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure itemprop="associatedMedia" itemscope
-                                            itemtype="http://schema.org/ImageObject"><a
-                                            href="{{asset('img/demo/property/4.jpg')}}" itemprop="contentUrl"
-                                            data-size="2000x1414"> <img data-src="{{asset('img/demo/property/4.jpg')}}"
-                                                                        src="{{asset('img/spacer.png')}}"
-                                                                        class="img-fluid swiper-lazy"
-                                                                        alt="Drawing Room"> </a></figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure itemprop="associatedMedia" itemscope
-                                            itemtype="http://schema.org/ImageObject"><a
-                                            href="{{asset('img/demo/property/5.jpg')}}" itemprop="contentUrl"
-                                            data-size="2000x1414"> <img data-src="{{asset('img/demo/property/5.jpg')}}"
-                                                                        src="{{asset('img/spacer.png')}}"
-                                                                        class="img-fluid swiper-lazy"
-                                                                        alt="Drawing Room"> </a></figure>
-                                </div>
-
+                                @foreach(\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->get() as $image)
+                                    <div class="swiper-slide">
+                                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                            <a href="{{ asset('/storage/images/' . $image->src) }}" itemprop="contentUrl" data-size="2000x1414">
+                                                <img data-src="{{ asset('/storage/images/' . $image->src) }}" src="{{asset('img/spacer.png')}}" class="img-fluid swiper-lazy" alt="Drawing Room">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
                         <div class="swiper-container gallery-thumbs">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/1.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/2.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/3.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/4.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/5.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/6.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/7.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/8.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
-                                <div class="swiper-slide"><img src="{{asset('img/demo/property/thumb/9.jpg')}}"
-                                                               class="img-fluid" alt=""></div>
+                                @foreach(\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->get() as $image)
+                                <div class="swiper-slide">
+                                    <img src="{{ asset('/storage/images/' . $image->src) }}" class="img-fluid" alt="">
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -136,19 +86,17 @@
                                 <div>
                                     <div class="item-description">
                                         <h3 class="headline">Mô tả về ngôi nhà</h3>
-                                        <p><strong>Some</strong> <strong>description</strong>.</p>
+                                        {!! $house->desc !!}
                                     </div>
 
                                     <div class="item-navigation">
                                         <ul class="nav nav-tabs v2" role="tablist">
-                                            <li role="presentation"><a href="#map" aria-controls="map" role="tab"
-                                                                       data-toggle="tab" class="active"><i
-                                                        class="fa fa-map"></i> <span
-                                                        class="hidden-xs">Map &amp; nearby</span></a></li>
-                                            <li role="presentation"><a href="#streetview" aria-controls="streetview"
-                                                                       role="tab" data-toggle="tab"><i
-                                                        class="fa fa-road"></i> <span
-                                                        class="hidden-xs">Street View</span></a></li>
+                                            <li role="presentation">
+                                                <a href="#map" aria-controls="map" role="tab" data-toggle="tab" class="active">
+                                                    <i class="fa fa-map"></i>
+                                                    <span class="hidden-xs">Xem vị trí trên bản đồ</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="map">
@@ -182,15 +130,15 @@
                                                     <div class="card-body">
                                                         <table class="table v1">
                                                             <tr>
-                                                                <td>Phòng ngủ</td>
+                                                                <td><i class="fa fa-bed"></i> Phòng ngủ</td>
                                                                 <td>{{$house->numberBedRoom}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Phòng tắm</td>
+                                                                <td><i class="fa fa-bath"></i> Phòng tắm</td>
                                                                 <td>{{$house->numberBathRoom}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Giá một ngày</td>
+                                                                <td><i class="fa fa-money"></i> Giá một ngày</td>
                                                                 <td>{{ number_format($house->pricePerDay, 0, ',', '.') }}
                                                                     <sup>đ</sup></td>
                                                             </tr>

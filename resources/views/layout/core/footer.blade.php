@@ -9,52 +9,45 @@
                     San Francisco, CA 94103<br>
                     <abbr title="Phone">P:</abbr> (123) 456-7890
                 </address>
-                <div class="footer-social mb-4"><a href="http://uilove.in/realestate/listo/preview/signin.html#"
-                                                   class="ml-2 mr-2"><span class="fa fa-twitter"></span></a> <a
-                        href="http://uilove.in/realestate/listo/preview/signin.html#" class="ml-2 mr-2"><span
-                            class="fa fa-facebook"></span></a> <a
-                        href="http://uilove.in/realestate/listo/preview/signin.html#" class="ml-2 mr-2"><span
+                <div class="footer-social mb-4"><a href="#" class="ml-2 mr-2"><span class="fa fa-twitter"></span></a> <a
+                        href="#" class="ml-2 mr-2"><span class="fa fa-facebook"></span></a> <a href="#"
+                                                                                               class="ml-2 mr-2"><span
                             class="fa fa-instagram"></span></a></div>
             </div>
             <div class="col-lg-2 col-sm-4">
                 <div class="footer-links">
                     <ul class="list-unstyled">
-                        <li class="list-title"><a href="http://uilove.in/realestate/listo/preview/signin.html#">About</a>
-                        </li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Company</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Community</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Carrers</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Press</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Contact</a></li>
+                        <li class="list-title"><a href="#">About</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Carrers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-sm-4">
                 <div class="footer-links">
                     <ul class="list-unstyled">
-                        <li class="list-title"><a href="http://uilove.in/realestate/listo/preview/signin.html#">Links</a>
-                        </li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">For Rent</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">For Sale</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Commercial</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Agents</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Property Guides</a>
-                        </li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Jobs</a></li>
+                        <li class="list-title"><a href="#">Links</a></li>
+                        <li><a href="#">For Rent</a></li>
+                        <li><a href="#">For Sale</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Property Guides</a></li>
+                        <li><a href="#">Jobs</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-sm-4">
                 <div class="footer-links">
                     <ul class="list-unstyled">
-                        <li class="list-title"><a href="http://uilove.in/realestate/listo/preview/signin.html#">Help</a>
-                        </li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Payments</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Shipping</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Cancellation</a>
-                        </li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">FAQ</a></li>
-                        <li><a href="http://uilove.in/realestate/listo/preview/signin.html#">Report</a></li>
+                        <li class="list-title"><a href="#">Help</a></li>
+                        <li><a href="#">Payments</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Cancellation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Report</a></li>
                     </ul>
                 </div>
             </div>
@@ -66,8 +59,8 @@
                             <input type="text" name="email" class="form-control form-control-lg subscribe-input"
                                    placeholder="Email">
                             <div class="input-group-append ml-0">
-                                <button class="btn subscribe-button" type="button"><i
-                                        class="fa fa-envelope"></i></button>
+                                <button class="btn subscribe-button" type="button"><i class="fa fa-envelope"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
