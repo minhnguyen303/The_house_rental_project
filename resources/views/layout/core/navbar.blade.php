@@ -133,16 +133,13 @@
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <span class="user-image" style="background-image:url(' /img/demo/profile3.jpg');"></span>
+                        <span class="user-image" style="background-image:url('{{asset('/img/demo/profile3.jpg')}}');"></span>
                         {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">
-                        <a href="my_profile.html" class="dropdown-item">My Profile</a>
-                        <a href="my_password.html" class="dropdown-item">Change Password</a>
-                        <a href="my_notifications.html" class="dropdown-item">Notifications</a>
-                        <a href="my_membership.html" class="dropdown-item">Membership</a>
-                        <a href="my_payments.html" class="dropdown-item">Payments</a>
-                        <a href="my_account.html" class="dropdown-item">Account</a>
+                        <a href="#" class="dropdown-item">Tài khoản</a>
+                        <a href="{{ route('auth.change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
+                        <a href="{{route('logout')}}" class="dropdown-item">Đăng xuất</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -155,7 +152,7 @@
                 </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link nav-btn" href="{{ route('page.register') }}">
+                        <a class="nav-link nav-btn" href="{{ route('auth.register') }}">
                         <span>
                             <i class="fa fa-user-plus" aria-hidden="true"></i>
                             Đăng ký
@@ -163,7 +160,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-btn" href="{{ route('page.login') }}">
+                        <a class="nav-link nav-btn" href="{{ route('auth.login') }}">
                         <span>
                             <i class="fa fa-sign-in" aria-hidden="true"></i>
                             Đăng nhập

@@ -28,9 +28,9 @@
                     <div class="col col-md-6  col-lg-5 col-xl-4">
                         <ul class="nav nav-tabs tab-lg" role="tablist">
                             <li role="presentation" class="nav-item">
-                                <a class="nav-link active" href="{{route('page.login')}}">Đăng nhập</a></li>
+                                <a class="nav-link active" href="{{route('auth.login')}}">Đăng nhập</a></li>
                             <li role="presentation" class="nav-item">
-                                <a class="nav-link" href="{{route('page.register')}}">Đăng ký</a>
+                                <a class="nav-link" href="{{route('auth.register')}}">Đăng ký</a>
                             </li>
                         </ul>
                         <div class="tab-content">

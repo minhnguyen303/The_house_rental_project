@@ -25,8 +25,8 @@
                 <div class="row justify-content-md-center align-items-center">
                     <div class="col col-md-6  col-lg-5 col-xl-4">
                         <ul class="nav nav-tabs tab-lg" role="tablist">
-                            <li role="presentation" class="nav-item"><a class="nav-link" href="{{route('page.login')}}">Đăng nhập</a></li>
-                            <li role="presentation" class="nav-item"><a class="nav-link active" href="{{route('page.register')}}">Đăng Ký</a></li>
+                            <li role="presentation" class="nav-item"><a class="nav-link" href="{{route('auth.login')}}">Đăng nhập</a></li>
+                            <li role="presentation" class="nav-item"><a class="nav-link active" href="{{route('auth.register')}}">Đăng Ký</a></li>
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="login">
