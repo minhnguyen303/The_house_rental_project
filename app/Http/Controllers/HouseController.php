@@ -20,6 +20,12 @@ class HouseController extends Controller
     public function index()
     {
         $houses = $this->getAllHouses();
+        return view('home', compact('houses'));
+    }
+
+    public function list()
+    {
+        $houses = $this->getAllHouses();
         return view('house.list-house', compact('houses'));
     }
 

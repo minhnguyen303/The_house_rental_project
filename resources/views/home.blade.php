@@ -310,7 +310,7 @@
                                                                         phòng<span>{{ (\Illuminate\Support\Facades\DB::table('room_types')->find($house->room_type_id))->typeName }}</span>
                                                                     </li>
                                                                     <li>Ngày
-                                                                        đăng:<span>{{ $house->created_at->toDateString() }}</span>
+                                                                        đăng:<span>{{ date('d/m/Y', strtotime($house->created_at)) }}</span>
                                                                     </li>
                                                                     <li>Chủ nhà:
                                                                         <span>
