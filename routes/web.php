@@ -48,3 +48,5 @@ Route::prefix('houses')->group(function () {
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('/change_password',[AuthController::class,'pageChangePassword'])->name('page.change_password');
 Route::post('/change_password',[AuthController::class,'changePassword'])->name('change_password');
+Route::get('/user_profile',[\App\Http\Controllers\UserController::class,'showPageUserProfile'])->name('page.user_profile');
+Route::post('/user_profile',[\App\Http\Controllers\UserController::class,'updateProfile'])->name('update_profile');

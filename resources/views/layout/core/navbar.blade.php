@@ -70,9 +70,9 @@
                                                 <li><a href="index6.html">Homepage 6</a></li>
                                                 <li><a href="index7.html">Homepage 7</a></li>
                                                 <li class="title">Login Pages</li>
-                                                <li><a href="signin.html">Signin</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="forgot-password.html">Forgot Password</a></li>
+                                                <li><a href="{{ route('login') }}">Signin</a></li>
+                                                <li><a href="{{ route('register') }}">Register</a></li>
+                                                <li><a href="#">Forgot Password</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-lg-3">
@@ -127,19 +127,19 @@
                 </li>
 
             </ul>
-
+            @auth
             <ul class="navbar-nav ml-auto">
                 @if(\Illuminate\Support\Facades\Auth::user())
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <span class="user-image" style="background-image:url('{{asset('/img/demo/profile3.jpg')}}');"></span>
+                        <span class="user-image" style="background-image:url('{{ \Illuminate\Support\Facades\Auth::user()->avatar }}');"></span>
                         {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Tài khoản</a>
+                        <a href="{{ route('page.user_profile') }}" class="dropdown-item">Tài khoản</a>
                         <a href="{{ route('auth.change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
-                        <a href="{{route('logout')}}" class="dropdown-item">Đăng xuất</a>
+                        <a href="{{ route('logout') }}" class="dropdown-item">Đăng xuất</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -169,7 +169,7 @@
                     </li>
                 @endif
             </ul>
-
+            @endauth
         </div>
     </div>
 </nav>
