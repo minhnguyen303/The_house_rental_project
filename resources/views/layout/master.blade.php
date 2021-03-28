@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,400,500,700" rel="stylesheet">
 
     <link href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/font-awesome/css/all.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/animate.css')}}" rel="stylesheet">
     <link href="{{asset('lib/selectric/selectric.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/swiper/css/swiper.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/swiper/css/swiper.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/aos/aos.css')}}" rel="stylesheet">
     <link href="{{asset('lib/Magnific-Popup/magnific-popup.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('lib/photoswipe/photoswipe.css')}}">
@@ -25,16 +25,17 @@
     <script src="{{asset('lib/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('lib/popper.min.js')}}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{asset('lib/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('lib/selectric/jquery.selectric.js')}}"></script>
+    <script src="{{asset('lib/tinymce/tinymce.min.js')}}"></script>
     <script src="{{asset('lib/swiper/js/swiper.js')}}"></script>
     <script src="{{asset('lib/aos/aos.js')}}"></script>
-    <script src="{{asset('lib/Magnific-Popup/jquery.magnific-popup.js')}}"></script>
-    <script src="{{asset('lib/photoswipe/photoswipe.js')}}"></script>
-    <script src="{{asset('lib/photoswipe/photoswipe-ui-default.js')}}"></script>
-    <script src="{{asset('lib/sticky-sidebar/ResizeSensor.js')}}"></script>
-    <script src="{{asset('lib/sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
-    <script src="{{asset('lib/sidr/jquery.sidr.js')}}"></script>
+    <script src="{{asset('lib/Magnific-Popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('lib/photoswipe/photoswipe.min.js')}}"></script>
+    <script src="{{asset('lib/photoswipe/photoswipe-ui-default.min.js')}}"></script>
+    <script src="{{asset('lib/sticky-sidebar/ResizeSensor.min.js')}}"></script>
+    <script src="{{asset('lib/sticky-sidebar/theia-sticky-sidebar.min.js')}}"></script>
+    <script src="{{asset('lib/sidr/jquery.sidr.min.js')}}"></script>
     <script src="{{asset('lib/lib.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,6 +49,7 @@
             display: table;
             clear: both;
         }</style>
+
 </head>
 
 @yield('body')

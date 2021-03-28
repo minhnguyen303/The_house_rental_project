@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember_me)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/'); // đường dẫn sau khi login ở đây
+            return redirect()->route('home'); // đường dẫn sau khi login ở đây
         }
 
         return back()->withErrors([
@@ -77,13 +77,16 @@ class AuthController extends Controller
         $user->save();
         return redirect()->route('page.login');
     }
+
     public function logout(){
         Auth::logout();
-        return redirect()->route('page.login');
+        return redirect()->route('auth.login');
     }
+
     public function pageChangePassword(){
         return view('change_password');
     }
+  
     public function changePassword(ChangePasswordRequest $request){
         $current_password = $request->current_password;
         $new_password = $request->new_password;
