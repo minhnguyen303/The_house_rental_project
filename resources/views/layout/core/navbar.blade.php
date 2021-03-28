@@ -8,128 +8,15 @@
 
         <div class="collapse navbar-collapse" id="menu-content">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Home <span class="sr-only">(current)</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="index.html" class="dropdown-item">Homepage 1</a>
-                        <a href="index2.html" class="dropdown-item">Homepage 2</a>
-                        <a href="index3.html" class="dropdown-item">Homepage 3</a>
-                        <a href="index4.html" class="dropdown-item">Homepage 4</a>
-                        <a href="index5.html" class="dropdown-item">Homepage 5</a>
-                        <a href="index6.html" class="dropdown-item">Homepage 6</a>
-                        <a href="index7.html" class="dropdown-item">Homepage 7</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}" role="button" aria-haspopup="true" aria-expanded="false">Trang chủ</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Listings
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="property_listing.html" class="dropdown-item">List View</a>
-                        <a href="property_grid.html" class="dropdown-item">Grid View</a>
-                        <a href="property_listing_map.html" class="dropdown-item">Map View</a>
-                        <a href="property_single.html" class="dropdown-item">Single View 1</a>
-                        <a href="property_single2.html" class="dropdown-item">Single View 2</a>
-                        <a href="property_single3.html" class="dropdown-item">Single View 3</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('house.list') }}" role="button" aria-haspopup="true" aria-expanded="false">Danh sách nhà cho thuê</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Agents
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="agent_list.html" class="dropdown-item">Agent List</a>
-                        <a href="agent.html" class="dropdown-item">Agent Profile</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown megamenu">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Pages
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="container">
-                            <div class="row justify-content-md-center">
-                                <div class="col col-md-8">
-                                    <div class="row">
-                                        <div class="col-md-6 col-lg-3">
-                                            <ul class="list-unstyled">
-                                                <li class="title">Homepage</li>
-                                                <li><a href="index.html">Homepage 1</a></li>
-                                                <li><a href="index2.html">Homepage 2</a></li>
-                                                <li><a href="index3.html">Homepage 3</a></li>
-                                                <li><a href="index4.html">Homepage 4</a></li>
-                                                <li><a href="index5.html">Homepage 5</a></li>
-                                                <li><a href="index6.html">Homepage 6</a></li>
-                                                <li><a href="index7.html">Homepage 7</a></li>
-                                                <li class="title">Login Pages</li>
-                                                <li><a href="{{ route('login') }}">Signin</a></li>
-                                                <li><a href="{{ route('register') }}">Register</a></li>
-                                                <li><a href="#">Forgot Password</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <ul class="list-unstyled">
-                                                <li class="title">Property Listing</li>
-                                                <li><a href="property_listing.html">List View</a></li>
-                                                <li><a href="property_grid.html">Grid View</a></li>
-                                                <li><a href="property_listing_map.html">Map View</a></li>
-                                                <li class="title">Single Property</li>
-                                                <li><a href="property_single.html">Single View 1</a></li>
-                                                <li><a href="property_single2.html">Single View 2</a></li>
-                                                <li><a href="property_single3.html">Single View 3</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <ul class="list-unstyled">
-                                                <li class="title">Other Pages</li>
-                                                <li><a href="plans.html">Plans</a></li>
-                                                <li><a href="information_page.html">Information Page</a></li>
-                                                <li><a href="coming_soon.html">Coming Soon</a></li>
-                                                <li><a href="404_error.html">Error Page</a></li>
-                                                <li><a href="success.html">Success Page</a></li>
-                                                <li><a href="contact.html">Contact Page</a></li>
-                                                <li><a href="compare.html">Compare Properties</a></li>
-                                                <li class="title">Agent Pages</li>
-                                                <li><a href="agent_list.html">Agent List</a></li>
-                                                <li><a href="agent.html">Agent Profile</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <ul class="list-unstyled">
-                                                <li class="title">Account Pages</li>
-                                                <li><a href="my_listing_add.html">Add Listing</a></li>
-                                                <li><a href="my_bookmarked_listings.html">Bookmarked Listing</a></li>
-                                                <li><a href="my_listings.html">My Listings</a></li>
-                                                <li><a href="my_profile.html">My Profile</a></li>
-                                                <li><a href="my_password.html">Change Password</a></li>
-                                                <li><a href="my_notifications.html">Notifications</a></li>
-                                                <li><a href="my_membership.html">Membership</a></li>
-                                                <li><a href="my_payments.html">Payments</a></li>
-                                                <li><a href="my_account.html">Account</a></li>
-                                                <li class="title">Blog Pages</li>
-                                                <li><a href="blog.html">Blog Archive</a></li>
-                                                <li><a href="blog_single.html">Blog Single</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
             </ul>
-            @auth
             <ul class="navbar-nav ml-auto">
-                @if(\Illuminate\Support\Facades\Auth::user())
+                @auth
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
@@ -167,9 +54,8 @@
                         </span>
                         </a>
                     </li>
-                @endif
+                @endauth
             </ul>
-            @endauth
         </div>
     </div>
 </nav>
