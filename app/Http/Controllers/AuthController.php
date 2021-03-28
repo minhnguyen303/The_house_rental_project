@@ -41,7 +41,7 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
-            return redirect()->route('login');
+            return redirect()->route('auth.login');
         }
 
         $existingUser = User::where('email', $user->email)->first();
@@ -75,7 +75,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
         $user->save();
-        return redirect()->route('page.login');
+        return redirect()->route('auth.login');
     }
 
     public function logout(){
@@ -86,7 +86,7 @@ class AuthController extends Controller
     public function pageChangePassword(){
         return view('change_password');
     }
-  
+
     public function changePassword(ChangePasswordRequest $request){
         $current_password = $request->current_password;
         $new_password = $request->new_password;
@@ -98,7 +98,7 @@ class AuthController extends Controller
                     $user->password = Hash::make($request->new_password);
                     $user->save();
                     Auth::logout();
-                    return redirect()->route('page.login');
+                    return redirect()->route('auth.login');
                 }
                 Session::flash('message_2','Mật khẩu này đã tồn tại');
                 return redirect()->back();

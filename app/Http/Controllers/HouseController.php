@@ -17,12 +17,6 @@ class HouseController extends Controller
         return DB::table('houses')->paginate(10);
     }
 
-    public function index()
-    {
-        $houses = $this->getAllHouses();
-        return view('home', compact('houses'));
-    }
-
     public function list()
     {
         $houses = $this->getAllHouses();

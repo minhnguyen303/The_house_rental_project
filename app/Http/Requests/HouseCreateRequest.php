@@ -24,7 +24,7 @@ class HouseCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
+            'name' => ['required', 'unique:users,name'],
             'room_type_id' => ['required', 'integer'],
             'address' => ['required'],
             'numberBedRoom' => ['required', 'integer', 'between:1,10'],

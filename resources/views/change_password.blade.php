@@ -24,8 +24,8 @@
                                                     <span class="badge badge-primary badge-pill">7</span>
                                                 </a>
                                                 <span class="list-group-item heading">Manage Account</span>
-                                                <a href="http://uilove.in/realestate/listo/preview/my_profile.html" class="list-group-item"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
-                                                <a href="http://uilove.in/realestate/listo/preview/my_password.html" class="list-group-item active"><i class="fa fa-fw fa-lock"></i> Change Password</a>
+                                                <a href="{{ route('page.user_profile') }}" class="list-group-item"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
+                                                <a href="{{ route('page.change_password') }}" class="list-group-item active"><i class="fa fa-fw fa-lock"></i> Change Password</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_notifications.html" class="list-group-item"><i class="fa fa-fw fa-bell-o"></i> Notifications</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_membership.html" class="list-group-item"><i class="fa fa-fw fa-cubes"></i> Membership</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_payments.html" class="list-group-item"><i class="fa fa-fw fa-credit-card"></i> Payments</a>

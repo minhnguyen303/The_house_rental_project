@@ -9,11 +9,11 @@
                 <div class="col col-md-12 col-lg-10 col-xl-8">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a
-                                    href="http://uilove.in/realestate/listo/preview/signin.html#">Home</a></li>
-                            <li class="breadcrumb-item"><a
-                                    href="http://uilove.in/realestate/listo/preview/signin.html#">Account</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Login</li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('home') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a href="{{ route('auth.login') }}">Đăng nhập</a>
+                            </li>
                         </ol>
                     </nav>
                     <div class="page-header">
