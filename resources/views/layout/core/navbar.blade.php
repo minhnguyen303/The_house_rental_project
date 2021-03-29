@@ -24,7 +24,7 @@
                         {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">
-                        <a href="{{ route('page.user_profile') }}" class="dropdown-item">Tài khoản</a>
+                        <a href="{{ route('auth.user_profile') }}" class="dropdown-item">Tài khoản</a>
                         <a href="{{ route('auth.change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
                         <a href="{{ route('logout') }}" class="dropdown-item">Đăng xuất</a>
                     </div>

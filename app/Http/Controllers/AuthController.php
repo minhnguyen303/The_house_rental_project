@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $request)
     {
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember_me)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember_me)) {
             $request->session()->regenerate();
 
             return redirect()->route('home'); // đường dẫn sau khi login ở đây
