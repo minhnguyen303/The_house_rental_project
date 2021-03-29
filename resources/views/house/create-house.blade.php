@@ -41,7 +41,10 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Tên ngôi nhà</label>
-                                        <input type="text" name="name" class="form-control form-control-lg" id="name" placeholder="Nhập tên ngôi nhà" autofocus>
+                                        <input type="text" name="name" class="form-control form-control-lg" id="name" autofocus>
+                                        @error('name')
+                                        <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="">Loại phòng</label>
@@ -53,10 +56,16 @@
                                             </div>
                                             @endforeach
                                         </div>
+                                        @error('room_type_id')
+                                        <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="autocomplete">Địa chỉ</label>
-                                        <input type="text" name="address" class="form-control form-control-lg" id="autocomplete" placeholder="Nhập vị trí của bạn">
+                                        <label for="autocomplete">Địa chỉ <span>(Sử dụng link google map)</span></label>
+                                        <input type="text" name="address" class="form-control form-control-lg" id="autocomplete">
+                                        @error('address')
+                                        <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -74,6 +83,9 @@
                                                     <option value="9">9</option>
                                                     <option value="10">10</option>
                                                 </select>
+                                                @error('numberBedRoom')
+                                                <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -84,16 +96,25 @@
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                 </select>
+                                                @error('numberBathRoom')
+                                                <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="desc">Mô tả chung</label>
-                                        <textarea id="desc" name="desc" class="form-control form-control-lg text-editor" placeholder="Nhập mô chung về căn nhà"></textarea>
+                                        <textarea id="desc" name="desc" class="form-control form-control-lg text-editor"></textarea>
+                                        @error('desc')
+                                        <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="pricePerDay">Giá một ngày (vnđ)</label>
-                                        <input type="number" name="pricePerDay" class="form-control form-control-lg" id="pricePerDay" placeholder="Nhập giá tiền một ngày tính theo vnđ">
+                                        <input type="number" name="pricePerDay" class="form-control form-control-lg" id="pricePerDay" required>
+                                        @error('pricePerDay')
+                                        <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="">Ảnh (<strong id="numberImage">0</strong>)</label>
@@ -128,7 +149,7 @@
         <button class="btn btn-primary btn-circle" id="to-top"><i class="fa fa-angle-up"></i></button>
         @include('layout.core.footer')
     </div>
-    <script>
+    {{--<script>
         var placeSearch, autocomplete;
         var componentForm = {
             //street_number: 'short_name',
@@ -159,7 +180,7 @@
                 }
             }
         }
-    </script>
+    </script>--}}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvuspZieDAMlpAVAe2qwlvkk8oQU34dtg&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
         tinymce.init({

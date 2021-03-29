@@ -24,12 +24,13 @@ class HouseCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:users,name'],
+            'name' => ['required', 'unique:houses,name'],
             'room_type_id' => ['required', 'integer'],
             'address' => ['required'],
             'numberBedRoom' => ['required', 'integer', 'between:1,10'],
             'numberBathRoom' => ['required', 'integer', 'between:1,3'],
             'pricePerDay' => ['required', 'integer'],
+            'desc' => ['required'],
             'images.*' => ['mimes:jpg,jpeg,png'],
         ];
     }
@@ -38,6 +39,7 @@ class HouseCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'Tên căn nhà không được bỏ trống!',
+            'name.unique' => 'Tên căn nhà đã tồn tại!',
             'room_type_id.required' => 'Cần chọn một loại phòng!',
             'room_type_id.integer' => 'Loại phòng không tồn tại!',
             'address.required' => 'Địa chỉ không được bỏ trống!',
@@ -49,6 +51,7 @@ class HouseCreateRequest extends FormRequest
             'numberBathRoom.between' => 'Số lượng phòng tắm phải từ 1 đến 10!',
             'pricePerDay.required' => 'Số tiền thuê một ngày không được bỏ trống!',
             'pricePerDay.integer' => 'Số tiền thuê một ngày không hợp lệ!',
+            'desc.required' => 'Hãy nhập mô tả về căn nhà!',
             'images.*.mimes' => 'Chỉ có thể up ảnh có đuôi jpg, jpeg, png',
         ];
     }

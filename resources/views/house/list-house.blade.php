@@ -197,10 +197,10 @@
                                                                     <div class="item-badge-left">
                                                                         @switch($house->status_id)
                                                                             @case(1)
-                                                                            <i class="fas fa-check"></i>
+                                                                            <i class="fa fa-check"></i>
                                                                             @break
                                                                             @case(2)
-                                                                            <i class="fas fa-user-check"></i>
+                                                                            <i class="fa fa-user-check"></i>
                                                                             @break
                                                                             @case(3)
                                                                             <i class="fa fa-hammer"></i>
