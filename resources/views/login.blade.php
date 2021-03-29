@@ -53,7 +53,7 @@
                                     </div>
                                     {{--<p class="text-lg-right"><a href="#">Quên mật khẩu</a></p>--}}
                                     <div class="checkbox">
-                                        <input type="checkbox" name="remember_me" id="remember_me">
+                                        <input type="checkbox" name="remember_me" id="remember_me" value="{{ old('remember_me') }}">
                                         <label for="remember_me">Ghi nhớ đăng nhập</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>
