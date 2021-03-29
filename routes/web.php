@@ -33,7 +33,7 @@ Route::post('/register',[AuthController::class,'register'])->name('register');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('/change_password',[AuthController::class,'pageChangePassword'])->name('auth.change_password');
 Route::post('/change_password',[AuthController::class,'changePassword'])->name('change_password');
-Route::get('/user_profile',[UserController::class,'showPageUserProfile'])->name('page.user_profile');
+Route::get('/user_profile',[UserController::class,'showPageUserProfile'])->name('auth.user_profile');
 Route::post('/user_profile',[UserController::class,'updateProfile'])->name('update_profile');
 
 Route::prefix('houses')->group(function () {
