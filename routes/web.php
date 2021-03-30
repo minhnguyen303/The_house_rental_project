@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\RentalRequestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,5 +45,12 @@ Route::prefix('houses')->group(function () {
         Route::post('/store', [HouseController::class, 'store'])->name('house.store');
         Route::get('/edit/{id}', [HouseController::class, 'edit'])->name('house.edit');
         Route::post('/update/{id}', [HouseController::class, 'update'])->name('house.update');
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('request')->group(function () {
+        Route::post('/create/{houseId}', [RentalRequestController::class, 'create'])->name('rentalRequest.create');
+        Route::post('/update', [RentalRequestController::class, 'update'])->name('rentalRequest.update');
     });
 });

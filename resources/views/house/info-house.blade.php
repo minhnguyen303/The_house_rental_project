@@ -165,7 +165,7 @@
                                                 </div>
                                             </div>
                                             <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal"
-                                               data-target="#leadform">Yêu cầu thuê nhà</a>
+                                               data-target="#leadform" id="btnModelRequest">Yêu cầu thuê nhà</a>
                                         </div>
                                     </div>
                                 </div>
@@ -187,23 +187,29 @@
                                 <h4 class="media-heading">Yêu cầu thuê nhà</h4>
                                 {{ $house->name }} </div>
                         </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('rentalRequest.create', $house->id) }}" method="post" id="requestRentalHouse">
+                            @csrf
                             <div class="form-group">
-                                <label>Ngày bắt đầu thuê</label>
-                                <input type="date" class="form-control" placeholder="">
+                                <label for="rentalStartDate">Ngày bắt đầu thuê</label>
+                                <input type="date" class="form-control" id="rentalStartDate" name="rentalStartDate" value="{{ old('rentalStartDate') }}" required>
+                                @error('rentalStartDate')
+                                <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label>Ngày trả phòng</label>
-                                <input type="date" class="form-control" placeholder="">
+                                <label for="rentalEndDate">Ngày trả phòng</label>
+                                <input type="date" class="form-control" id="rentalEndDate" name="rentalEndDate" value="{{ old('rentalEndDate') }}" required>
+                                @error('rentalEndDate')
+                                <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label>Tổng tiền</label>
+                                <label for="totalMoney">Tổng tiền</label>
                                 <div class="input-group mb-2">
-                                    <input type="number" class="form-control" placeholder="" disabled>
+                                    <input type="text" class="form-control" id="totalMoney" disabled>
                                     <div class="input-group-append">
                                         <div class="input-group-text">đ</div>
                                     </div>
@@ -214,70 +220,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-link" data-dismiss="modal">Hủy bỏ</button>
-                        <button type="button" class="btn btn-primary">Gửi yêu cầu</button>
+                        <button type="submit" form="requestRentalHouse" class="btn btn-primary">Gửi yêu cầu</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Report Listing Modal -->
-        <div class="modal fade item-badge-rightm" id="report-listing" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="media">
-                            <div class="media-left"><i class="fa fa-3x fa-exclamation-circle" aria-hidden="true"></i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Report Listing for 2 bed semi-detached bungalow for sale</h4>
-                                Kents Lane, Bungay NR35
-                            </div>
-                        </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Contact Name</label>
-                                <input type="text" class="form-control" placeholder="Contact Name">
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address">
-                            </div>
-                            <div class="form-group">
-                                <label>Nature of report</label>
-                                <select class="form-control">
-                                    <option value="">Please Select</option>
-                                    <option value="no_longer_available">Property is no longer available</option>
-                                    <option value="incorrect_price">Price listed is incorrect</option>
-                                    <option value="incorrect_last_sold_price">Last sold price incorrect</option>
-                                    <option value="incorrect_description">Property description is inaccurate</option>
-                                    <option value="incorrect_location">Property location is incorrect</option>
-                                    <option value="incorrect_content">Problem with photos, floorplans, etc.</option>
-                                    <option value="inappropriate_video">Problem with the video</option>
-                                    <option value="agent_not_contactable">Agent is not contactable</option>
-                                    <option value="incorrect_running_costs">Running costs is displaying inaccurate
-                                        values
-                                    </option>
-                                    <option value="other">Other (please specify)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Description of content issue </label>
-                                <textarea rows="4" class="form-control"
-                                          placeholder="Please provide as much information as possible..."></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Report Error</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <button class="btn btn-primary btn-circle" id="to-top"><i class="fa fa-angle-up"></i></button>
         @include('layout.core.footer')
     </div>
@@ -340,178 +288,9 @@
                 <div class="pswp__caption">
                     <div class="pswp__caption__center"></div>
                 </div>
-
             </div>
-
         </div>
 
-    </div>
-
-    <div class="daterangepicker ltr show-calendar opensright"
-         style="top: 1526px; left: auto; right: 0px; display: none;">
-        <div class="ranges"></div>
-        <div class="drp-calendar left">
-            <div class="calendar-table">
-                <table class="table-condensed">
-                    <thead>
-                    <tr>
-                        <th class="prev available"><span></span></th>
-                        <th colspan="5" class="month">Mar 2021</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>Su</th>
-                        <th>Mo</th>
-                        <th>Tu</th>
-                        <th>We</th>
-                        <th>Th</th>
-                        <th>Fr</th>
-                        <th>Sa</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="weekend off ends available" data-title="r0c0">28</td>
-                        <td class="available" data-title="r0c1">1</td>
-                        <td class="available" data-title="r0c2">2</td>
-                        <td class="available" data-title="r0c3">3</td>
-                        <td class="available" data-title="r0c4">4</td>
-                        <td class="available" data-title="r0c5">5</td>
-                        <td class="weekend available" data-title="r0c6">6</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r1c0">7</td>
-                        <td class="available" data-title="r1c1">8</td>
-                        <td class="available" data-title="r1c2">9</td>
-                        <td class="available" data-title="r1c3">10</td>
-                        <td class="available" data-title="r1c4">11</td>
-                        <td class="available" data-title="r1c5">12</td>
-                        <td class="weekend available" data-title="r1c6">13</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r2c0">14</td>
-                        <td class="available" data-title="r2c1">15</td>
-                        <td class="available" data-title="r2c2">16</td>
-                        <td class="available" data-title="r2c3">17</td>
-                        <td class="available" data-title="r2c4">18</td>
-                        <td class="available" data-title="r2c5">19</td>
-                        <td class="weekend available" data-title="r2c6">20</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r3c0">21</td>
-                        <td class="available" data-title="r3c1">22</td>
-                        <td class="available" data-title="r3c2">23</td>
-                        <td class="available" data-title="r3c3">24</td>
-                        <td class="today active start-date active end-date available" data-title="r3c4">25</td>
-                        <td class="available" data-title="r3c5">26</td>
-                        <td class="weekend available" data-title="r3c6">27</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r4c0">28</td>
-                        <td class="available" data-title="r4c1">29</td>
-                        <td class="available" data-title="r4c2">30</td>
-                        <td class="available" data-title="r4c3">31</td>
-                        <td class="off ends available" data-title="r4c4">1</td>
-                        <td class="off ends available" data-title="r4c5">2</td>
-                        <td class="weekend off ends available" data-title="r4c6">3</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend off ends available" data-title="r5c0">4</td>
-                        <td class="off ends available" data-title="r5c1">5</td>
-                        <td class="off ends available" data-title="r5c2">6</td>
-                        <td class="off ends available" data-title="r5c3">7</td>
-                        <td class="off ends available" data-title="r5c4">8</td>
-                        <td class="off ends available" data-title="r5c5">9</td>
-                        <td class="weekend off ends available" data-title="r5c6">10</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="calendar-time" style="display: none;"></div>
-        </div>
-        <div class="drp-calendar right">
-            <div class="calendar-table">
-                <table class="table-condensed">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th colspan="5" class="month">Apr 2021</th>
-                        <th class="next available"><span></span></th>
-                    </tr>
-                    <tr>
-                        <th>Su</th>
-                        <th>Mo</th>
-                        <th>Tu</th>
-                        <th>We</th>
-                        <th>Th</th>
-                        <th>Fr</th>
-                        <th>Sa</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="weekend off ends available" data-title="r0c0">28</td>
-                        <td class="off ends available" data-title="r0c1">29</td>
-                        <td class="off ends available" data-title="r0c2">30</td>
-                        <td class="off ends available" data-title="r0c3">31</td>
-                        <td class="available" data-title="r0c4">1</td>
-                        <td class="available" data-title="r0c5">2</td>
-                        <td class="weekend available" data-title="r0c6">3</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r1c0">4</td>
-                        <td class="available" data-title="r1c1">5</td>
-                        <td class="available" data-title="r1c2">6</td>
-                        <td class="available" data-title="r1c3">7</td>
-                        <td class="available" data-title="r1c4">8</td>
-                        <td class="available" data-title="r1c5">9</td>
-                        <td class="weekend available" data-title="r1c6">10</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r2c0">11</td>
-                        <td class="available" data-title="r2c1">12</td>
-                        <td class="available" data-title="r2c2">13</td>
-                        <td class="available" data-title="r2c3">14</td>
-                        <td class="available" data-title="r2c4">15</td>
-                        <td class="available" data-title="r2c5">16</td>
-                        <td class="weekend available" data-title="r2c6">17</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r3c0">18</td>
-                        <td class="available" data-title="r3c1">19</td>
-                        <td class="available" data-title="r3c2">20</td>
-                        <td class="available" data-title="r3c3">21</td>
-                        <td class="available" data-title="r3c4">22</td>
-                        <td class="available" data-title="r3c5">23</td>
-                        <td class="weekend available" data-title="r3c6">24</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend available" data-title="r4c0">25</td>
-                        <td class="available" data-title="r4c1">26</td>
-                        <td class="available" data-title="r4c2">27</td>
-                        <td class="available" data-title="r4c3">28</td>
-                        <td class="available" data-title="r4c4">29</td>
-                        <td class="available" data-title="r4c5">30</td>
-                        <td class="weekend off ends available" data-title="r4c6">1</td>
-                    </tr>
-                    <tr>
-                        <td class="weekend off ends available" data-title="r5c0">2</td>
-                        <td class="off ends available" data-title="r5c1">3</td>
-                        <td class="off ends available" data-title="r5c2">4</td>
-                        <td class="off ends available" data-title="r5c3">5</td>
-                        <td class="off ends available" data-title="r5c4">6</td>
-                        <td class="off ends available" data-title="r5c5">7</td>
-                        <td class="weekend off ends available" data-title="r5c6">8</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="calendar-time" style="display: none;"></div>
-        </div>
-        <div class="drp-buttons"><span class="drp-selected">03/25/2021 - 03/25/2021</span>
-            <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button>
-            <button class="applyBtn btn btn-sm btn-primary" type="button">Apply</button>
-        </div>
     </div>
 
     <script type="text/javascript">
@@ -719,6 +498,47 @@
         });
         galleryTop.controller.control = galleryThumbs;
         galleryThumbs.controller.control = galleryTop;
+    </script>
+    <script>
+        const housePrice = "{{ $house->pricePerDay }}";
+        const rentalStartDate = $("#rentalStartDate");
+        const rentalEndDate = $("#rentalEndDate");
+        const totalMoney = $("#totalMoney");
+
+        $(document).ready(function () {
+            rentalStartDate.on('input', function () {
+                updateMoney();
+            });
+
+            rentalEndDate.on('input', function () {
+                updateMoney();
+            });
+
+            @if ($errors->any())
+            $("#btnModelRequest").click();
+            updateMoney();
+            @endif
+        });
+
+        function updateMoney() {
+            if (rentalStartDate.val() !== '' && rentalEndDate.val() !== ''){
+                totalMoney.val(' ');
+                const date1 = new Date(rentalStartDate.val());
+                const date2 = new Date(rentalEndDate.val());
+                const diffTime = date2 - date1;
+                if (diffTime > 0){
+                    const diffDays = Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24));
+                    totalMoney.val(diffDays * housePrice);
+                } else if (diffTime === 0) {
+                    totalMoney.val(0);
+                } else {
+                    totalMoney.val('Có gì đó sai sai về số ngày thuê nhà !?');
+                }
+                /*const diffTime = Math.abs(date2 - date1);
+                const diffDays = Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24));
+                $("#totalMoney").val(diffDays * housePrice);*/
+            }
+        }
     </script>
     </body>
 @endsection
