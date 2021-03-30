@@ -15,7 +15,7 @@
                                         <div class="sidebar_inner">
                                             <div class="list-group no-border list-unstyled">
                                                 <span class="list-group-item heading">Manage Listings</span>
-                                                <a href="http://uilove.in/realestate/listo/preview/my_listing_add.html" class="list-group-item"><i class="fa fa-fw fa-plus-square-o"></i> Add Listing</a>
+                                                <a href="{{route('listPost')}}" class="list-group-item"><i class="fa fa-fw fa-plus-square-o"></i>Danh sách bài đã đăng</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_bookmarked_listings.html" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bookmark-o"></i> Bookmarked Listing</span>
                                                     <span class="badge badge-primary badge-pill">10</span>
                                                 </a>

@@ -2340,7 +2340,7 @@ var defaults = {
   preventClicksPropagation: true,
   slideToClickedSlide: false,
 
-  // Images
+  // images
   preloadImages: true,
   updateOnImagesReady: true,
 
@@ -2569,7 +2569,7 @@ class Swiper extends SwiperClass {
         diff: 0,
       },
 
-      // Images
+      // images
       imagesToLoad: [],
       imagesLoaded: 0,
 
@@ -6204,7 +6204,7 @@ Swiper.components = [
   Browser$2,
   Resize,
   Observer$1,
-  
+
 ];
 
 export { Swiper, virtual as Virtual, keyboard as Keyboard, mousewheel as Mousewheel, navigation as Navigation, pagination as Pagination, scrollbar as Scrollbar, parallax as Parallax, zoom as Zoom, lazy as Lazy, controller as Controller, a11y$1 as A11y, history as History, hashNavigation as HashNavigation, autoplay as Autoplay, effectFade as EffectFade, effectCube as EffectCube, effectFlip as EffectFlip, effectCoverflow as EffectCoverflow };

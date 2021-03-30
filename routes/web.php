@@ -46,3 +46,4 @@ Route::prefix('houses')->group(function () {
         Route::post('/update/{id}', [HouseController::class, 'update'])->name('house.update');
     });
 });
+Route::get('/listPost',[HouseController::class,'listPost'])->name('listPost');

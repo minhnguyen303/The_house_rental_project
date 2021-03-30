@@ -191,7 +191,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="item-image">
-                                                            <a href="{{route('house.info', $house->id)}}">
+                                                                <a href="{{route('house.info', $house->id)}}">
                                                                 <img src="{{ asset('/storage/images/' . (\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->first())->src) }}" class="img-fluid" alt="">
                                                                 <div class="item-badges">
                                                                     <div class="item-badge-left">

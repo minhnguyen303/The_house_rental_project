@@ -74,4 +74,14 @@ class HouseController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function listPost()
+    {
+        return view('posts.listPost');
+    }
+
+    public function getListPost()
+    {
+
+    }
 }
