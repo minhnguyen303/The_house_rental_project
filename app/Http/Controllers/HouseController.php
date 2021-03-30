@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\HouseCreateRequest;
+use App\Http\Requests\RequestRentalHouseRequest;
 use App\Models\House;
 use App\Models\HouseImage;
 use Illuminate\Http\Request;
