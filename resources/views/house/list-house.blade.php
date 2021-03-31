@@ -20,7 +20,7 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-sm-10">
                                                         <div class="form-group">
                                                             <label>Số phòng ngủ</label>
                                                             <input type="number" class="form-control form-control-lg" name="bedrooms_number">
@@ -28,7 +28,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-sm-10">
                                                         <div class="form-group">
                                                             <label>Số phòng tắm</label>
                                                             <input type="number" class="form-control form-control-lg" name="bathrooms_number">
@@ -38,7 +38,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-sm-10">
                                                         <div class="form-group">
                                                             <label>Địa chỉ</label>
                                                             <input type="text" name="address" class="form-control form-control-lg" id="autocomplete">
@@ -46,7 +46,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-sm-10">
                                                         <div class="form-group">
                                                             <label>Khoảng giá tiền</label>
                                                             <input type="text" name="price_per_day" class="form-control form-control-lg">
@@ -56,7 +56,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div class="input-group input-daterange col-lg-8">
+                                                    <div class="input-group input-daterange col-sm-10">
                                                         <input type="date" name="start_date" class="form-control @error('start_date') is-invalid @enderror" required>
                                                             @error('start_date')
                                                                 <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                                         <div class="col-sm-5">
                                             <div class="form-group">
                                                 <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal"
-                                                   data-target="#leadform">Yêu cầu thuê nhà</a>
+                                                   data-target="#leadform">Tìm kiếm</a>
                                             </div>
                                         </div>
                                     </div>
