@@ -20,7 +20,7 @@
                 <li class="nav-item dropdown user-account">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <span class="user-image" style="background-image:url('{{ \Illuminate\Support\Facades\Auth::user()->avatar }}');"></span>
+                        <span class="user-image" style="background-image:url('{{ asset('storage/avatars/' . \Illuminate\Support\Facades\Auth::user()->avatar) }}');"></span>
                         {{ \Illuminate\Support\Facades\Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu">

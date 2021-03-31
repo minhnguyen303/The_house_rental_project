@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title') Login @endsection
+@section('title') Đăng nhập @endsection
 @section('body')
     <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" style="margin-top: 0px;">
     <div id="main">
@@ -39,16 +39,14 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="username">Tên người dùng</label>
-                                        <input type="text" value="{{ old('username') }}" name="username" id="username" class="form-control form-control-lg @error('username') is-invalid @enderror "
-                                               placeholder="User name" required>
+                                        <input type="text" value="{{ old('username') }}" name="username" id="username" class="form-control form-control-lg @error('username') is-invalid @enderror " required>
                                         @error('username')
                                         <p class="py-2 mb-3 text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Mật khẩu</label>
-                                        <input type="password" value="{{ old('password') }}" name="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                               placeholder="Password" required minlength="6" maxlength="32">
+                                        <input type="password" value="{{ old('password') }}" name="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" required minlength="6" maxlength="32">
                                         @error('password')
                                         <p class="py-2 mb-3 text-danger">{{ $message }}</p>
                                         @enderror

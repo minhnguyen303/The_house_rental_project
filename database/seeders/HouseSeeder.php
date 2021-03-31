@@ -25,6 +25,8 @@ class HouseSeeder extends Seeder
             $house->desc = "Default desc $i";
             $house->status_id = rand(1,3);
             $house->pricePerDay = rand(100000,300000);
+            $house->startDate = '2021-03-31';
+            $house->endDate = '2021-04-01';
             $house->save();
         }
     }

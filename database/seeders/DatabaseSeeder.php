@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
         $this->call(RoomTypeSeeder::class);
-        $this->call(HouseStatus::class);
+        $this->call(HouseStatusSeeder::class);
         $this->call(HouseImageSeeder::class);
         $this->call(HouseSeeder::class);
     }

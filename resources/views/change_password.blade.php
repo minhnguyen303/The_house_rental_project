@@ -25,7 +25,7 @@
                                                 </a>
                                                 <span class="list-group-item heading">Manage Account</span>
                                                 <a href="{{ route('page.user_profile') }}" class="list-group-item"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
-                                                <a href="{{ route('page.change_password') }}" class="list-group-item active"><i class="fa fa-fw fa-lock"></i> Change Password</a>
+                                                <a href="{{ route('auth.change_password') }}" class="list-group-item active"><i class="fa fa-fw fa-lock"></i> Change Password</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_notifications.html" class="list-group-item"><i class="fa fa-fw fa-bell-o"></i> Notifications</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_membership.html" class="list-group-item"><i class="fa fa-fw fa-cubes"></i> Membership</a>
                                                 <a href="http://uilove.in/realestate/listo/preview/my_payments.html" class="list-group-item"><i class="fa fa-fw fa-credit-card"></i> Payments</a>
@@ -52,7 +52,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <label>Mật khẩu hiện tại</label>
-                                            <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" name="current_password" placeholder="Nhập mật khẩu hiện tại" minlength="6" maxlength="8" required>
+                                            <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" name="current_password" minlength="6" maxlength="8" required>
                                             @error('current_password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mật khẩu mới</label>
-                                            <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror" name="new_password" placeholder="Nhập mật khẩu mới" minlength="6" maxlength="8" required>
+                                            <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror" name="new_password" minlength="6" maxlength="8" required>
                                             @error('new_password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>
@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Xác nhận mật khẩu</label>
-                                            <input type="password" class="form-control form-control-lg @error('password_confirm') is-invalid @enderror" name="password_confirm" placeholder="Xác nhận" minlength="6" maxlength="8" required>
+                                            <input type="password" class="form-control form-control-lg @error('password_confirm') is-invalid @enderror" name="password_confirm" minlength="6" maxlength="8" required>
                                             @error('password_confirm')
                                                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>

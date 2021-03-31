@@ -24,6 +24,8 @@ class CreateHousesTable extends Migration
             $table->string('desc');
             $table->unsignedBigInteger('status_id');
             $table->unsignedInteger('pricePerDay');
+            $table->date('startDate')->nullable();
+            $table->date('endDate')->nullable();
             $table->timestamps();
         });
     }

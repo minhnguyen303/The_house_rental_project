@@ -4,55 +4,6 @@
     <body>
     <div id="main">
         @include('layout.core.navbar')
-        <div class="home-search">
-            <div class="main search-form">
-                <div class="container">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-12 col-lg-10">
-                            <div class="heading">
-                                <h2>Tìm ngôi nhà mới của bạn</h2>
-                                <h3>Chúng tôi sẽ giúp bạn tìm một nơi phù hợp với bạn nhất</h3>
-                            </div>
-                            <form action="#">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control form-control-lg"
-                                                       placeholder="Country, State, County, City, Zip, Title, Address, ID.">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="col-sm-7">
-                                                    <div class="form-group">
-                                                        <select class="form-control form-control-lg ui-select">
-                                                            <option value="">Property Type</option>
-                                                            <option value="house">House</option>
-                                                            <option value="flat">Flat</option>
-                                                            <option value="apartment">Apartment</option>
-                                                            <option value="land">Land</option>
-                                                            <option value="room">Room</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-group">
-                                                        <button type="submit" class="btn btn-lg btn-primary btn-block">
-                                                            Tìm kiếm
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div id="content" class="pt0 pb0">
             <div class="feature-box centered gray">
                 <div>

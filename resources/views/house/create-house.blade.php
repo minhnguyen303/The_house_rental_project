@@ -41,7 +41,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Tên ngôi nhà</label>
-                                        <input type="text" name="name" class="form-control form-control-lg" id="name" placeholder="Nhập tên ngôi nhà" autofocus>
+                                        <input type="text" name="name" class="form-control form-control-lg" id="name" autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Loại phòng</label>
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="autocomplete">Địa chỉ</label>
-                                        <input type="text" name="address" class="form-control form-control-lg" id="autocomplete" placeholder="Nhập vị trí của bạn">
+                                        <input type="text" name="address" class="form-control form-control-lg" id="autocomplete">
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -89,11 +89,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="desc">Mô tả chung</label>
-                                        <textarea id="desc" name="desc" class="form-control form-control-lg text-editor" placeholder="Nhập mô chung về căn nhà"></textarea>
+                                        <textarea id="desc" name="desc" class="form-control form-control-lg text-editor"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="pricePerDay">Giá một ngày (vnđ)</label>
-                                        <input type="number" name="pricePerDay" class="form-control form-control-lg" id="pricePerDay" placeholder="Nhập giá tiền một ngày tính theo vnđ">
+                                        <input type="number" name="pricePerDay" class="form-control form-control-lg" id="pricePerDay">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Ảnh (<strong id="numberImage">0</strong>)</label>

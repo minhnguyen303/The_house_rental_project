@@ -18,12 +18,12 @@ class HouseStatusSeeder extends Seeder
         $status->status = 'Còn trống';
         $status->save();
 
-        $status1 = new HouseStatus();
-        $status1->status = 'Đã thuê';
-        $status1->save();
+        $status = new HouseStatus();
+        $status->status = 'Đã thuê';
+        $status->save();
 
-        $status2 = new HouseStatus();
-        $status2->status = 'Đang nâng cấp';
-        $status2->save();
+        $status = new HouseStatus();
+        $status->status = 'Đang nâng cấp';
+        $status->save();
     }
 }

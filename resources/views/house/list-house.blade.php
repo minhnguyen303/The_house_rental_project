@@ -4,37 +4,83 @@
     <body>
     <div id="main">
         @include('layout.core.navbar')
-        <div class="container">
-            <div class="search-form">
-                <div class="card">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-lg"
-                                       placeholder="Country, State, County, City, Zip, Title, Address, ID.">
+        <div class="home-search">
+            <div class="main search-form">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-12 col-lg-10">
+                            <div class="heading">
+                                <h2>Tìm ngôi nhà mới của bạn</h2>
+                                <h3>Chúng tôi sẽ giúp bạn tìm một nơi phù hợp với bạn nhất</h3>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <div class="form-group">
-                                        <select class="form-control form-control-lg ui-select"
-                                                data-placeholder="Property Type">
-                                            <option value="">Property Type</option>
-                                            <option value="house">House</option>
-                                            <option value="flat">Flat</option>
-                                            <option value="apartment">Apartment</option>
-                                            <option value="land">Land</option>
-                                            <option value="room">Room</option>
-                                        </select>
+                            <form action="{{ route('house.search') }}" method="get">
+                                @csrf
+                                <div class="card">
+                                    <div class="row">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-10">
+                                                        <div class="form-group">
+                                                            <label>Số phòng ngủ</label>
+                                                            <input type="number" class="form-control form-control-lg" name="bedrooms_number">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-10">
+                                                        <div class="form-group">
+                                                            <label>Số phòng tắm</label>
+                                                            <input type="number" class="form-control form-control-lg" name="bathrooms_number">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-lg-10">
+                                                        <div class="form-group">
+                                                            <label>Địa chỉ</label>
+                                                            <input type="text" name="address" class="form-control form-control-lg" id="autocomplete">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-10">
+                                                        <div class="form-group">
+                                                            <label>Khoảng giá tiền</label>
+                                                            <input type="text" name="price_per_day" class="form-control form-control-lg">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="input-group input-daterange col-lg-8">
+                                                        <input type="date" name="start_date" class="form-control @error('start_date') is-invalid @enderror" required>
+                                                            @error('start_date')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                            @enderror
+                                                        <div class="input-group-addon">to</div>
+                                                        <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror" required>
+                                                            @error('end_date')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                            @enderror
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal"
+                                                   data-target="#leadform">Yêu cầu thuê nhà</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Search</button>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -192,7 +238,7 @@
                                                     <div class="col-lg-6">
                                                         <div class="item-image">
                                                             <a href="{{route('house.info', $house->id)}}">
-                                                                <img src="{{ asset('/storage/images/' . (\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->first())->src) }}" class="img-fluid" alt="">
+                                                                <img src="" class="img-fluid" alt="">
                                                                 <div class="item-badges">
                                                                     <div class="item-badge-left">
                                                                         @switch($house->status_id)
@@ -274,7 +320,6 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    {{ $houses->links() }}
                                 @else
                                     <h1 class="text-center">Không có dữ liệu</h1>
                                 @endif
@@ -301,5 +346,38 @@
             });
         });
     </script>
+    <script>
+        var placeSearch, autocomplete;
+        var componentForm = {
+            //street_number: 'short_name',
+            //route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'long_name',
+            country: 'long_name',
+            postal_code: 'long_name'
+        };
+
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), {types: ['geocode']});
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            var place = autocomplete.getPlace();
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvuspZieDAMlpAVAe2qwlvkk8oQU34dtg&libraries=places&callback=initAutocomplete" async defer></script>
     </body>
 @endsection
