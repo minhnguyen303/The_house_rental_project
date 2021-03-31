@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class RentalRequestController extends Controller
 {
+    public function getAll()
+    {
+        return DB::table('rental_requests')->get();
+    }
+
+    public function list()
+    {
+        $rentalRequests = $this->getAll();
+        return view('user.rental_request', compact('rentalRequests'));
+    }
+
     public function create($houseId, RequestRentalHouseRequest $request)
     {
         $house = DB::table('houses')->find($houseId);
