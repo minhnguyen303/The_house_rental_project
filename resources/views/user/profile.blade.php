@@ -5,119 +5,74 @@
         <div class="page-header bordered">
             <h1>My profile <small>Manage your public profile</small></h1>
         </div>
-        <form action="">
-            <h3 class="subheadline">Basic Information</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" value="John">
+        <form method="post">
+            @csrf
+            <div class="row gutters-sm">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>{{ \Illuminate\Support\Facades\Auth::user()->fullname }}</h4>
+                                    <p class="text-muted font-size-sm">{{ \Illuminate\Support\Facades\Auth::user()->address }}</p>
+                                    <p class="text-muted font-size-sm">
+                                        <input type="text" class="form-control" name="avatar" placeholder="Change Avatar(URL Link)">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                Tên người dùng:
+                                <input type="text" class="form-control" name="username" value="{{ \Illuminate\Support\Facades\Auth::user()->username }}" disabled required>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                Họ và tên:
+                                <input type="text" class="form-control @error('fullname') is-invalid @enderror" name="fullname" value="{{ \Illuminate\Support\Facades\Auth::user()->fullname }}" required>
+                                @error('fullname')
+                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                @enderror
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                Địa chỉ:
+                                <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ \Illuminate\Support\Facades\Auth::user()->address }}" required>
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                @enderror
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                Số điện thoại:
+                                <input type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ \Illuminate\Support\Facades\Auth::user()->phone }}" minlength="10" required>
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                @enderror
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                Email:
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}" required>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                @enderror
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="form-group action">
+                                    <button type="submit" class="btn btn-lg btn-primary">Update Profile</button>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" value="Doe">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Your Email</label>
-                <input type="text" class="form-control form-control-lg" value="john.doe@email.com">
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" value="+14155552671">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Fax</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" value="">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>About Me</label>
-                <textarea class="form-control form-control-lg text-editor" placeholder=""></textarea>
-            </div>
-            <h3 class="subheadline">Social Links</h3>
-            <div class="form-group">
-                <label>Twitter</label>
-                <div class="input-group"> <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-fw fa-twitter"></i></span></div>
-                    <input type="text" class="form-control form-control-lg" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Facebook</label>
-                <div class="input-group"> <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-fw fa-facebook"></i></span></div>
-                    <input type="text" class="form-control form-control-lg" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Google Plus</label>
-                <div class="input-group"> <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-fw fa-google-plus"></i></span></div>
-                    <input type="text" class="form-control form-control-lg" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Linkedin</label>
-                <div class="input-group"> <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-fw fa-linkedin"></i></span></div>
-                    <input type="text" class="form-control form-control-lg" placeholder="">
-                </div>
-            </div>
-            <h3 class="subheadline">Agent/Company Profile</h3>
-            <div class="form-group">
-                <label>Agent/Company Title</label>
-                <input type="text" class="form-control form-control-lg">
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Location</label>
-                        <input type="text" class="form-control form-control-lg" id="autocomplete" placeholder="Enter your location">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" id="locality">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>State</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" id="administrative_area_level_1">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" id="country">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Zipcode</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="" id="postal_code">
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="form-group action">
-                <button type="submit" class="btn btn-lg btn-primary">Update Profile</button>
             </div>
         </form>
     </div>

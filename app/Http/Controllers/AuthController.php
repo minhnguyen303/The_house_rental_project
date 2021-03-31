@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember_me)) {
             $request->session()->regenerate();
 
-            return redirect()->route('home'); // đường dẫn sau khi login ở đây
+            return redirect()->route('house.list'); // đường dẫn sau khi login ở đây
         }
 
         return back()->withErrors([
