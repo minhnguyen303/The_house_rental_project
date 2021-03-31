@@ -3208,7 +3208,7 @@ var defaults = {
   preventClicksPropagation: true,
   slideToClickedSlide: false,
 
-  // Images
+  // images
   preloadImages: true,
   updateOnImagesReady: true,
 
@@ -3441,7 +3441,7 @@ var Swiper$1 = (function (SwiperClass$$1) {
         diff: 0,
       },
 
-      // Images
+      // images
       imagesToLoad: [],
       imagesLoaded: 0,
 

@@ -2340,7 +2340,7 @@ var defaults = {
   preventClicksPropagation: true,
   slideToClickedSlide: false,
 
-  // Images
+  // images
   preloadImages: true,
   updateOnImagesReady: true,
 
@@ -2569,7 +2569,7 @@ class Swiper$1 extends SwiperClass {
         diff: 0,
       },
 
-      // Images
+      // images
       imagesToLoad: [],
       imagesLoaded: 0,
 
