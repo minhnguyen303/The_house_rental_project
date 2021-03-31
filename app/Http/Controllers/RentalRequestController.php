@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class RentalRequestController extends Controller
 {
-    public function getAll()
-    {
-        return DB::table('rental_requests')->get();
-    }
-
     public function list()
     {
-        $rentalRequests = $this->getAll();
+        $rentalRequests = DB::table('rental_requests')->where('owner_house_id', Auth::id())->get();
+        return view('user.rental_request', compact('rentalRequests'));
+    }
+
+    public function myList()
+    {
+        $rentalRequests = DB::table('rental_requests')->where('request_user_id', Auth::id())->get();
         return view('user.rental_request', compact('rentalRequests'));
     }
 

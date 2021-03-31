@@ -25,8 +25,12 @@
                         <div class="row d-flex">
                             <div class="col-md-12">
                                 <div class="added-on m-1">
-                                    <button class="btn btn-outline-success">Chấp nhận</button>
-                                    <button class="btn btn-outline-danger">Từ chối</button>
+                                    @if(\Illuminate\Support\Facades\Route::currentRouteName() == "user.rentalRequest")
+                                        <button class="btn btn-outline-success">Chấp nhận</button>
+                                        <button class="btn btn-outline-danger">Từ chối</button>
+                                    @else
+                                        <button class="btn btn-outline-danger">Hủy yêu cầu</button>
+                                    @endif
                                 </div>
 
                             </div>
