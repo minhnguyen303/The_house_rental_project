@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('user')->group(function () {
-        Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+        Route::post('/profile', [UserController::class, 'profile'])->name('user.profile');
         Route::get('/rental-request', [RentalRequestController::class, 'list'])->name('user.rentalRequest');
     });
 });

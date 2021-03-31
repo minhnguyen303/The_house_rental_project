@@ -28,7 +28,7 @@
                         <a href="{{ route('auth.change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
                         <a href="#" class="dropdown-item">Nhà đăng cho thuê</a>
                         <a href="#" class="dropdown-item">Nhà tôi đã thuê</a>
-                        <a href="{{ route('user.rentalRequest') }}" class="dropdown-item">Yêu cầu thuê nhà</a>
+                        <a href="{{ route('user.rentalRequest') }}" class="dropdown-item">Các yêu cầu thuê nhà</a>
                         <a href="{{ route('logout') }}" class="dropdown-item">Đăng xuất</a>
                     </div>
                 </li>

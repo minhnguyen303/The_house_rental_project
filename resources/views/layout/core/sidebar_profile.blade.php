@@ -5,13 +5,13 @@
             <div class="list-group no-border list-unstyled">
                 <span class="list-group-item heading">Quản lý thuê nhà</span>
                 <a href="{{ route('house.create') }}" class="list-group-item {{ ($route == 'house.create') ? 'active' : '' }}"><i class="fa fa-fw fa-plus-square-o"></i> Đăng bài cho thuê nhà</a>
-                <a href="#" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> Nhà đăng cho thuê</span>
+                <a href="{{ route('') }}" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> Nhà đăng cho thuê</span>
                     <span class="badge badge-primary badge-pill">10</span>
                 </a>
                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> Nhà tôi đã thuê</span>
                     <span class="badge badge-primary badge-pill">7</span>
                 </a>
-                <a href="{{ route('user.rentalRequest') }}" class="list-group-item d-flex justify-content-between align-items-center {{ ($route == 'user.rentalRequest') ? 'active' : '' }}"><span><i class="fa fa-fw fa-bell"></i> Yêu cầu thuê nhà</span>
+                <a href="{{ route('user.rentalRequest') }}" class="list-group-item d-flex justify-content-between align-items-center {{ ($route == 'user.rentalRequest') ? 'active' : '' }}"><span><i class="fa fa-fw fa-bell"></i> Các yêu cầu thuê nhà</span>
                     <span class="badge badge-primary badge-pill">{{ \Illuminate\Support\Facades\DB::table('rental_requests')->where('owner_house_id', \Illuminate\Support\Facades\Auth::id())->count() }}</span>
                 </a>
                 <span class="list-group-item heading">Quản lý tài khoản</span>
