@@ -7,7 +7,7 @@
         <div id="content">
             <div class="container">
                 <div class="row justify-content-md-center">
-                    <div class="col col-lg-12 col-xl-10">
+                    <div class="col col-lg-12 col-xl-12">
                         <div class="row has-sidebar">
                             @include('layout.core.sidebar_profile')
                             @yield('bodyUserPage')
