@@ -19,7 +19,7 @@
                                             <a href="my_bookmarked_listings.html" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bookmark-o"></i> Bookmarked Listing</span>
                                                 <span class="badge badge-primary badge-pill">10</span>
                                             </a>
-                                            <a href="my_listings.html" class="list-group-item active d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> My Listings</span>
+                                            <a href="my_listings.html" class="list-group-item active d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i>Danh sách bài đã đăng</span>
                                                 <span class="badge badge-primary badge-pill">7</span>
                                             </a>
                                             <span class="list-group-item heading">Manage Account</span>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-7 col-lg-8 col-xl-8">
                                 <div class="page-header bordered">
-                                    <h1>My Listings</h1>
+                                    <h1>Danh sách bài đã đăng</h1>
                                 </div>
                                 <div class="item-listing list">
                                     @foreach($houses as $house)
@@ -43,7 +43,7 @@
                                         <div class="row">
                                             <div class="col-lg-5">
                                                 <div class="item-image">
-                                                    <a href="{{route('house.info', $house->id)}}">
+                                                    <a href="{{route('infoPost', $house->id)}}">
                                                         <img src="{{ asset('/storage/images/' . (\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->first())->src) }}" class="img-fluid" alt="">
                                                         <div class="item-badges">
                                                             <div class="item-badge-left">
