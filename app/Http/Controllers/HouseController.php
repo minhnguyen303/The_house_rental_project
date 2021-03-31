@@ -7,9 +7,9 @@ use App\Http\Requests\RequestRentalHouseRequest;
 use App\Models\House;
 use App\Models\HouseImage;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class HouseController extends Controller
 {
@@ -69,6 +69,7 @@ class HouseController extends Controller
             $image->save();
 
             $file = new UploadedFile(public_path('img/demo/property/floorplan.png'), 'floorplan.png');
+            /*dd($file);*/
 
             $file->storeAs('public/images', $image->src);
         }

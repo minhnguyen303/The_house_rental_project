@@ -520,6 +520,10 @@
             @endif
         });
 
+        function createRequestRentalHouse() {
+
+        }
+
         function updateMoney() {
             if (rentalStartDate.val() !== '' && rentalEndDate.val() !== ''){
                 totalMoney.val(' ');
