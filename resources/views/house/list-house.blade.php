@@ -43,13 +43,6 @@
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col col-lg-12 col-xl-10">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Property for sale</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">North Yorkshire</li>
-                        </ol>
-                    </nav>
                     <div class="page-header">
                         <h1>Danh sách tất cả các căn nhà đang cho thuê</h1>
                     </div>

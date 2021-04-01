@@ -37,6 +37,7 @@
 
         function fillInAddress() {
             var place = autocomplete.getPlace();
+            console.log(place.address_components);
             for (var component in componentForm) {
                 document.getElementById(component).value = '';
                 document.getElementById(component).disabled = false;
@@ -51,7 +52,7 @@
             }
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvuspZieDAMlpAVAe2qwlvkk8oQU34dtg&libraries=places&callback=initAutocomplete" async defer></script>
     <script>
         tinymce.init({
             selector: '.text-editor',
