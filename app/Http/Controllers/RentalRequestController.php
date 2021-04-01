@@ -26,7 +26,7 @@ class RentalRequestController extends Controller
     public function create($houseId, RequestRentalHouseRequest $request)
     {
         $house = DB::table('houses')->find($houseId);
-        if ($house->status_id == 1){
+        if ($house->status_id == 1) {
 
             $startDate = new Carbon($request->rentalStartDate, 'Asia/Ho_Chi_Minh');
             $endDate = new Carbon($request->rentalEndDate, 'Asia/Ho_Chi_Minh');
@@ -65,8 +65,25 @@ class RentalRequestController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update($id)
     {
+        $rentalRequest = DB::table('rental_requests')->find($id);
 
+        $startDate = new Carbon($rentalRequest->startDate, 'Asia/Ho_Chi_Minh');
+        $today = Carbon::now('Asia/Ho_Chi_Minh');
+
+        $diffTodayAndStartDay = $today->diffInDays($startDate, false);
+        $diffTodayAndStartHour = $today->diffInHours($startDate, false);
+
+        if ($diffTodayAndStartDay > 3 || ($diffTodayAndStartDay == 1 && $diffTodayAndStartHour > 0)) {
+            DB::table('rental_requests')->where('id',$id)->update(['status_id' => 4]);
+            return back()->withErrors([
+                'rentalRequest_' . $id => 'Hủy thuê nhà thành công !'
+            ]);
+        } else {
+            return back()->withErrors([
+                'rentalCancel_' . $id => 'Bạn chỉ có thể hủy thuê trước một ngày !'
+            ]);
+        }
     }
 }
