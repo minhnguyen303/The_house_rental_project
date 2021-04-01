@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('request')->group(function () {
         Route::post('/create/{houseId}', [RentalRequestController::class, 'create'])->name('rentalRequest.create');
-        Route::post('/update', [RentalRequestController::class, 'update'])->name('rentalRequest.update');
+        Route::get('/update/{id}', [RentalRequestController::class, 'update'])->name('rentalRequest.update');
     });
 
     Route::prefix('user')->group(function () {

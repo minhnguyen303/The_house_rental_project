@@ -25,5 +25,9 @@ class RequestStatusSeeder extends Seeder
         $status2 = new RequestStatus();
         $status2->status = 'Đã từ chối';
         $status2->save();
+
+        $status3 = new RequestStatus();
+        $status3->status = 'Đã hủy';
+        $status3->save();
     }
 }
