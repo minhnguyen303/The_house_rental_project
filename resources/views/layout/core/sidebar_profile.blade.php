@@ -19,7 +19,7 @@
                 </a>
                 <span class="list-group-item heading">Quản lý tài khoản</span>
                 <a href="{{ route('user.profile') }}" class="list-group-item {{ ($route == 'user.profile') ? 'active' : '' }}"><i class="fa fa-fw fa-pencil"></i> Thông tin của tôi</a>
-                <a href="{{ route('auth.change_password') }}" class="list-group-item {{ ($route == 'auth.change_password') ? 'active' : '' }}"><i class="fa fa-fw fa-lock"></i> Đổi mật khẩu</a>
+                <a href="{{ route('user.changePassword') }}" class="list-group-item {{ ($route == 'user.changePassword') ? 'active' : '' }}"><i class="fa fa-fw fa-lock"></i> Đổi mật khẩu</a>
             </div>
         </div>
     </div>

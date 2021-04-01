@@ -5,11 +5,11 @@
         <div class="page-header bordered">
             <h1>Đổi mật khẩu</h1>
         </div>
-        <form action="{{route('change_password')}}" method="post">
+        <form action="{{route('changePassword')}}" method="post">
             @csrf
             <div class="form-group">
                 <label>Mật khẩu hiện tại</label>
-                <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" name="current_password" placeholder="Nhập mật khẩu hiện tại" minlength="6" maxlength="8" required>
+                <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" name="current_password" minlength="6" maxlength="8" required>
                 @error('current_password')
                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label>Mật khẩu mới</label>
-                <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror" name="new_password" placeholder="Nhập mật khẩu mới" minlength="6" maxlength="8" required>
+                <input type="password" class="form-control form-control-lg @error('new_password') is-invalid @enderror" name="new_password" minlength="6" maxlength="8" required>
                 @error('new_password')
                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label>Xác nhận mật khẩu</label>
-                <input type="password" class="form-control form-control-lg @error('password_confirm') is-invalid @enderror" name="password_confirm" placeholder="Xác nhận" minlength="6" maxlength="8" required>
+                <input type="password" class="form-control form-control-lg @error('password_confirm') is-invalid @enderror" name="password_confirm" minlength="6" maxlength="8" required>
                 @error('password_confirm')
                 <span class="invalid-feedback" role="alert">
                                                     <p class="alert alert-info">{{ $message }}</p>
@@ -45,7 +45,7 @@
             </div>
             <hr>
             <div class="form-group action">
-                <button type="submit" class="btn btn-lg btn-primary" onclick="return confirm('Xác nhận thay đổi ?')">Lưu</button>
+                <button type="submit" class="btn btn-lg btn-primary">Lưu</button>
             </div>
         </form>
     </div>

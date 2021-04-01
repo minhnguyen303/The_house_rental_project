@@ -76,5 +76,27 @@ class HouseController extends Controller
 
         return redirect()->route('home');
     }
-
+    public function searchHouse(Request $request){
+        $bedrooms_number = $request->bedrooms_number;
+        $bathrooms_number = $request->bathrooms_number;
+        $address = $request->address;
+        $price_per_day = $request->price_per_day;
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $house = House::query();
+        if ($bedrooms_number != ''){
+            $house->where('numberBedRoom',$bedrooms_number);
+        }
+        if ($bathrooms_number != ''){
+            $house->where('numberBathRoom',$bathrooms_number);
+        }
+        if ($address != ''){
+            $house->where('address',$address);
+        }
+        if ($price_per_day != ''){
+            $house->whereRaw('pricePerDay > ' . ($price_per_day - 50000) . ' and pricePerDay < ' . ($price_per_day + 50000));
+        }
+        $houses = $house->get();
+        return view('house.list-house', compact('houses'));
+    }
 }
