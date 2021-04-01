@@ -200,10 +200,10 @@
                                                                             <i class="fa fa-check"></i>
                                                                             @break
                                                                             @case(2)
-                                                                            <i class="fa fa-user-check"></i>
+                                                                            <i class="fa fa-flag-checkered"></i>
                                                                             @break
                                                                             @case(3)
-                                                                            <i class="fa fa-hammer"></i>
+                                                                            <i class="fa fa-wrench"></i>
                                                                             @break
                                                                         @endswitch
                                                                         {{ (\Illuminate\Support\Facades\DB::table('house_statuses')->find($house->status_id))->status }}

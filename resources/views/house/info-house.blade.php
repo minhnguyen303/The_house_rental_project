@@ -23,10 +23,10 @@
                                             <i class="fa fa-check"></i>
                                             @break
                                             @case(2)
-                                            <i class="fa fa-user-check"></i>
+                                            <i class="fa fa-flag-checkered"></i>
                                             @break
                                             @case(3)
-                                            <i class="fa fa-hammer"></i>
+                                            <i class="fa fa-wrench"></i>
                                             @break
                                         @endswitch
                                         {{ (\Illuminate\Support\Facades\DB::table('house_statuses')->find($house->status_id))->status }}</span>
@@ -192,6 +192,9 @@
                     <div class="modal-body">
                         <form action="{{ route('rentalRequest.create', $house->id) }}" method="post" id="requestRentalHouse">
                             @csrf
+                            @error('request')
+                            <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                            @enderror
                             <div class="form-group">
                                 <label for="rentalStartDate">Ngày bắt đầu thuê</label>
                                 <input type="date" class="form-control" id="rentalStartDate" name="rentalStartDate" value="{{ old('rentalStartDate') }}" required>
