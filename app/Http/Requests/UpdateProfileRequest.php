@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProfileRequest extends FormRequest
 {
@@ -21,21 +22,15 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => ['required'],
-            'address' => ['required'],
-            'phone' => ['required','digits:10','unique:users'],
-            'email' => ['required','email','unique:users'],
+            'phone' => ['digits:10',Rule::unique('users')->ignore($this->user()->id)],
+            'email' => ['email',Rule::unique('users')->ignore($this->user()->id)],
         ];
     }
     public function messages()
     {
         return [
-            'fullname.required' => 'Họ và tên không được để trống',
-            'address.required' => 'Địa chỉ không được để trống',
-            'phone.required' => 'Số điện thoại không được để trống',
             'phone.digits' => 'Số điện thoại không hợp lệ',
             'phone.unique' => 'Số điện thoại này đã tồn tại',
-            'email.required' => 'Email không được để trống',
             'email.email' => 'Email không hợp lệ',
             'email.unique' => 'Email này đã tồn tại',
         ];

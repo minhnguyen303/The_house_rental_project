@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title') Login @endsection
+@section('title') Đăng nhập @endsection
 @section('body')
     <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" style="margin-top: 0px;">
     <div id="main">
@@ -37,6 +37,15 @@
                             <div role="tabpanel" class="tab-pane active" id="login">
                                 <form action="{{route('login')}}" method="post">
                                     @csrf
+                                    @if (session()->has('message'))
+                                        <p class="alert alert-info">{{ session('message') }}</p>
+                                    @endif
+                                    @if (session()->has('message_1'))
+                                        <p class="alert alert-info">{{ session('message_1') }}</p>
+                                    @endif
+                                    @if(Session::has('message_4'))
+                                        <p class="alert alert-info">{{ Session::get('message_4') }}</p>
+                                    @endif
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="text" value="{{ old('username') }}" name="email" id="email" class="form-control form-control-lg @error('username') is-invalid @enderror " required>
