@@ -29,7 +29,12 @@
                                         <button class="btn btn-outline-success">Chấp nhận</button>
                                         <button class="btn btn-outline-danger">Từ chối</button>
                                     @else
-                                        <button class="btn btn-outline-danger">Hủy yêu cầu</button>
+                                        @if($request->status_id != 4)
+                                            <a class="btn btn-outline-danger" href="{{route('rentalRequest.update',$request->id)}}" role="button">Hủy yêu cầu</a>
+                                        @error('rentalCancel_' . $request->id)
+                                            <p class="py-2 mb-3 text-danger">{{ $message }}</p>
+                                        @enderror
+                                        @endif
                                     @endif
                                 </div>
 
