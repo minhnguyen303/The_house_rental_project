@@ -33,13 +33,12 @@ class RentalRequestController extends Controller
             $today = Carbon::now('Asia/Ho_Chi_Minh');
 
             $diffStartAndEndDay = $startDate->diffInDays($endDate, false);
-            $diffStartAndEndHouse = $startDate->diffInHours($endDate, false);
             $diffTodayAndStartDay = $today->diffInDays($startDate, false);
             $diffTodayAndStartHour = $today->diffInHours($startDate, false);
 
             if ($diffTodayAndStartDay > 0 || ($diffTodayAndStartDay == 0 && $diffTodayAndStartHour > 0)) {
 
-                if ($diffStartAndEndHouse > 0) {
+                if ($diffStartAndEndDay > 0) {
                     $rentalRequest = new RentalRequest();
                     $rentalRequest->request_user_id = Auth::id();
                     $rentalRequest->owner_house_id = $house->owner_id;
@@ -48,7 +47,7 @@ class RentalRequestController extends Controller
                     $rentalRequest->endDate = $request->rentalEndDate;
                     $rentalRequest->status_id = 1;
                     $rentalRequest->save();
-                    return route('house.list');
+                    return redirect()->route('house.list');
                 } else {
                     return back()->withErrors([
                         'rentalEndDate' => 'Ngày kết thúc phải lớn hơn ngày bắt đầu!'
