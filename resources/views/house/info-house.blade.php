@@ -90,24 +90,13 @@
                                     </div>
 
                                     <div class="item-navigation">
-                                        <ul class="nav nav-tabs v2" role="tablist">
-                                            <li role="presentation">
-                                                <a href="#map" aria-controls="map" role="tab" data-toggle="tab" class="active">
-                                                    <i class="fa fa-map"></i>
-                                                    <span class="hidden-xs">Xem vị trí trên bản đồ</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <div class="card-header text-center">
+                                            <i class="fa fa-map"></i>
+                                            <span class="hidden-xs h4"> Vị trí trên bản đồ</span>
+                                        </div>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="map">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1215.7401235613713!2d1.4497354260471211!3d52.45232942952154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9f169c5a088db%3A0x75a6abde48cc5adc!2sKents+Ln%2C+Bungay+NR35+1JF%2C+UK!5e0!3m2!1sen!2sin!4v1489862715790"
-                                                    width="600" height="450" style="border:0;" allowfullscreen></iframe>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="streetview">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2s!4v1489861898447!6m8!1m7!1sGz9bS-GXSJE28jHD19m7KQ!2m2!1d52.45191646727986!2d1.451480542718656!3f0!4f0!5f0.8160813932612223"
-                                                    width="600" height="450" style="border:0" allowfullscreen></iframe>
+                                                <iframe id="frameMap" width="600" height="450" style="border:0;" allowfullscreen></iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -152,20 +141,22 @@
                                             <div class="media">
                                                 <div class="media-left"><a href="#"> <img
                                                             class="media-object rounded-circle"
-                                                            src="{{asset('img/demo/profile.jpg')}}" width="64"
-                                                            height="64" alt=""> </a></div>
+                                                            src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" width="64"
+                                                            height="64" alt="avatar_image"> </a></div>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a
                                                             href="#">{{ (\Illuminate\Support\Facades\DB::table('users')->find($house->owner_id))->username }}</a>
                                                     </h4>
-                                                    <p><a href="tel:01502392905"><i class="fa fa-phone"
-                                                                                    aria-hidden="true"></i> {{ (\Illuminate\Support\Facades\DB::table('users')->find($house->owner_id))->phone }}
-                                                        </a></p>
-                                                    <p><a href="#" class="btn btn-sm btn-light">Xem thông tin</a></p>
+                                                    <p>
+                                                        <a href="tel:{{ (\Illuminate\Support\Facades\DB::table('users')->find($house->owner_id))->phone }}">
+                                                            {{--<i class="fa fa-phone" aria-hidden="true"></i>--}} {{ (\Illuminate\Support\Facades\DB::table('users')->find($house->owner_id))->phone }}
+                                                        </a>
+                                                    </p>
+                                                    {{--<p><a href="#" class="btn btn-sm btn-light">Xem thông tin</a></p>--}}
                                                 </div>
                                             </div>
                                             <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal"
-                                               data-target="#leadform" id="btnModelRequest">Yêu cầu thuê nhà</a>
+                                               data-target="#leadform" id="btnModelRequest">THUÊ NGAY</a>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +172,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="media">
-                            <div class="media-left"><img src="{{asset('img/demo/property/thumb/1.jpg')}}" width="60"
+                            <div class="media-left"><img src="{{ asset('/storage/images/' . $image->src) }}" width="60"
                                                          class="img-rounded mt5" alt=""></div>
                             <div class="media-body">
                                 <h4 class="media-heading">Yêu cầu thuê nhà</h4>
@@ -222,8 +213,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal">Hủy bỏ</button>
-                        <button type="submit" form="requestRentalHouse" class="btn btn-primary">Gửi yêu cầu</button>
+                        <button type="button" class="btn btn-link btnClose" data-dismiss="modal">Hủy bỏ</button>
+                        <button type="button" form="requestRentalHouse" class="btn btn-primary">THUÊ NHÀ</button>
                     </div>
                 </div>
             </div>
@@ -521,6 +512,9 @@
             $("#btnModelRequest").click();
             updateMoney();
             @endif
+
+            let locationMap = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAGSXn0gJgwhUr3jiqVhlHfe3MrMSx20HE&q=" + encodeURIComponent('{{ $house->address }}') + "&zoom=15&maptype=satellite&language=vi";
+            $("#frameMap").attr("src", locationMap);
         });
 
         function createRequestRentalHouse() {

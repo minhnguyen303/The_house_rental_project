@@ -12,7 +12,7 @@ class PostHouseController extends Controller
 {
     public function getAllPost()
     {
-        $houses = DB::table('houses')->where('owner_id',Auth::id())->get();
+        $houses = DB::table('houses')->where('owner_id',Auth::id())->orderBy('created_at', 'desc')->get();
         return view('posts.listPost',compact('houses'));
     }
 

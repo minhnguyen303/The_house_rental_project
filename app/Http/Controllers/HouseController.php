@@ -15,7 +15,7 @@ class HouseController extends Controller
 {
     public function getAllHouses()
     {
-        return DB::table('houses')->paginate(10);
+        return DB::table('houses')->orderBy('created_at', 'desc')->paginate(10);
     }
 
     public function list()
@@ -74,7 +74,9 @@ class HouseController extends Controller
             $file->storeAs('public/images', $image->src);
         }
 
-        return redirect()->route('home');
+        return back()->withErrors([
+            'success' => "Success"
+        ]);
     }
 
 }

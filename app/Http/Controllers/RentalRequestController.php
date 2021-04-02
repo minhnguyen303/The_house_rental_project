@@ -13,13 +13,13 @@ class RentalRequestController extends Controller
 {
     public function list()
     {
-        $rentalRequests = DB::table('rental_requests')->where('owner_house_id', Auth::id())->get();
+        $rentalRequests = DB::table('rental_requests')->where('owner_house_id', Auth::id())->orderBy('created_at', 'desc')->get();
         return view('user.rental_request', compact('rentalRequests'));
     }
 
     public function myList()
     {
-        $rentalRequests = DB::table('rental_requests')->where('request_user_id', Auth::id())->get();
+        $rentalRequests = DB::table('rental_requests')->where('request_user_id', Auth::id())->orderBy('created_at', 'desc')->get();
         return view('user.rental_request', compact('rentalRequests'));
     }
 

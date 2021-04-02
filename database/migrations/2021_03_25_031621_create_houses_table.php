@@ -21,7 +21,7 @@ class CreateHousesTable extends Migration
             $table->string('address');
             $table->unsignedInteger('numberBedRoom');
             $table->unsignedInteger('numberBathRoom');
-            $table->string('desc');
+            $table->string('desc')->nullable();
             $table->unsignedBigInteger('status_id');
             $table->unsignedInteger('pricePerDay');
             $table->timestamps();

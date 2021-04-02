@@ -19,7 +19,7 @@
         <button class="btn btn-primary btn-circle" id="to-top"><i class="fa fa-angle-up"></i></button>
         @include('layout.core.footer')
     </div>
-    <script>
+    {{--<script>
         var placeSearch, autocomplete;
         var componentForm = {
             //street_number: 'short_name',
@@ -63,6 +63,6 @@
             ],
             toolbar: 'undo redo | link | formatselect | bold italic underline  | alignleft aligncenter alignright alignjustify | bullist numlist'
         });
-    </script>
+    </script>--}}
     </body>
 @endsection

@@ -50,6 +50,8 @@
             clear: both;
         }</style>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 </head>
 
 @yield('body')
