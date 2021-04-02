@@ -230,7 +230,7 @@
                                                     <div class="col-lg-6">
                                                         <div class="item-image">
                                                                 <a href="{{route('house.info', $house->id)}}">
-                                                                <img src="" class="img-fluid" alt="">
+                                                                <img src="{{ asset('/storage/images/' . (\Illuminate\Support\Facades\DB::table('house_images')->where('house_id', $house->id)->first())->src) }}" class="img-fluid" alt="">
                                                                 <div class="item-badges">
                                                                     <div class="item-badge-left">
                                                                         @switch($house->status_id)
@@ -312,6 +312,7 @@
                                             </div>
                                         @endforeach
                                     </div>
+                                    {{ $houses->links() }}
                                 @else
                                     <h1 class="text-center">Không có dữ liệu</h1>
                                 @endif
