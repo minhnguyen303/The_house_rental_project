@@ -77,4 +77,9 @@ class HouseController extends Controller
         return redirect()->route('home');
     }
 
+    public function evaluate()
+    {
+        return view('evaluate.evaluate-house');
+    }
+
 }

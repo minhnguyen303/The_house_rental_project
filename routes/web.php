@@ -65,3 +65,5 @@ Route::middleware('auth')->group(function () {
         Route::get('/my-rental-request', [RentalRequestController::class, 'myList'])->name('user.myRentalRequest');
     });
 });
+
+Route::get('/evaluate',[HouseController::class, 'evaluate'])->name('evaluate-house');

@@ -3,7 +3,7 @@
 @section('body')
     <body>
     <div id="main">
-        @include('layout.core.navbar')
+            @include('layout.core.navbar')
         <div class="container">
             <div class="search-form">
                 <div class="card">
