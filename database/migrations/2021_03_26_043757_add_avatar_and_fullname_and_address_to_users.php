@@ -14,7 +14,7 @@ class AddAvatarAndFullnameAndAddressToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('avatar_user_default.jpg');
             $table->string('fullname')->nullable();
             $table->string('address')->nullable();
         });
